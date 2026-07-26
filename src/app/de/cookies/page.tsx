@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/legal/LegalPage";
 import { deCookies } from "@/lib/legal-content";
 
 export const metadata: Metadata = {
-  title: "Cookie-Einstellungen | The Circle Twelve",
+  title: "Cookies & Technologien | The Circle Twelve",
   description: deCookies.description,
   alternates: { canonical: "/de/cookies" }
 };

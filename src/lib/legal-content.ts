@@ -27,7 +27,7 @@ export const deImpressum: LegalPageContent = {
   updated: "Juli 2026",
   sections: [
     {
-      title: "Angaben nach Paragraf 5 DDG",
+      title: "Anbieterkennzeichnung",
       paragraphs: [
         site.brand,
         `Inhaberin: ${site.proprietor}`,
@@ -37,37 +37,39 @@ export const deImpressum: LegalPageContent = {
       ]
     },
     {
-      title: "Taetigkeitsbeschreibung",
+      title: "Taetigkeitsprofil",
       paragraphs: [
-        "Beratung, Vermittlung und Vermarktung von Fahrzeugen, Luftfahrzeugen, Wasserfahrzeugen, Luxusguetern und sonstigen hochwertigen Vermoegenswerten sowie Organisation und Vermittlung individueller Dienstleistungen."
+        "The Circle Twelve ist eine private Beratungs- und Vermittlungsmarke fuer ausgewaehlte Vermoegenswerte und diskrete Individualmandate.",
+        "Der Fokus liegt auf Automotive, Aviation, Yachting, Luxury Assets und persoenlich kuratierten Dienstleistungen im Umfeld anspruchsvoller privater und internationaler Anfragen."
       ]
     },
     {
-      title: "Verantwortlich fuer redaktionelle Inhalte",
+      title: "Redaktionelle Verantwortung",
       paragraphs: [`${site.proprietor}`, `E-Mail: ${site.email}`]
     },
     {
-      title: "Verbraucherstreitbeilegung",
+      title: "Inhalte und Verfuegbarkeit",
+      paragraphs: [
+        "Die Inhalte dieser Website werden mit besonderer Sorgfalt erstellt. Sie dienen der allgemeinen Information und Praesentation und stellen kein verbindliches Angebot dar.",
+        "The Circle Twelve behaelt sich vor, Inhalte jederzeit zu aktualisieren, zu ergaenzen oder zu entfernen."
+      ]
+    },
+    {
+      title: "Externe Verweise",
+      paragraphs: [
+        "Diese Website kann auf externe Angebote Dritter verweisen. Fuer deren Inhalte und Verfuegbarkeit ist ausschliesslich der jeweilige Anbieter verantwortlich."
+      ]
+    },
+    {
+      title: "Schutzrechte",
+      paragraphs: [
+        "Texte, Bilder, Logos, Gestaltungselemente und sonstige Inhalte dieser Website sind urheberrechtlich oder durch andere Schutzrechte geschuetzt. Jede Nutzung ausserhalb gesetzlicher Erlaubnisse bedarf der vorherigen Zustimmung des jeweiligen Rechteinhabers."
+      ]
+    },
+    {
+      title: "Streitbeilegung",
       paragraphs: [
         "The Circle Twelve ist weder verpflichtet noch bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
-      ]
-    },
-    {
-      title: "Haftung fuer Inhalte",
-      paragraphs: [
-        "Die Inhalte dieser Website werden mit Sorgfalt erstellt. Fuer die Richtigkeit, Vollstaendigkeit und Aktualitaet der Inhalte kann jedoch keine Gewaehr uebernommen werden."
-      ]
-    },
-    {
-      title: "Haftung fuer Links",
-      paragraphs: [
-        "Diese Website kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte hat The Circle Twelve keinen Einfluss. Fuer die Inhalte verlinkter Seiten ist ausschliesslich der jeweilige Betreiber verantwortlich."
-      ]
-    },
-    {
-      title: "Urheberrecht",
-      paragraphs: [
-        "Die auf dieser Website veroeffentlichten Inhalte, Bilder, Texte, Logos und Gestaltungen unterliegen dem Urheberrecht und weiteren Schutzrechten. Jede Nutzung ausserhalb der gesetzlichen Grenzen bedarf der vorherigen Zustimmung des jeweiligen Rechteinhabers."
       ]
     }
   ]
@@ -79,7 +81,7 @@ export const enImprint: LegalPageContent = {
   updated: "July 2026",
   sections: [
     {
-      title: "Provider information",
+      title: "Provider Information",
       paragraphs: [
         site.brand,
         `Proprietor: ${site.proprietor}`,
@@ -89,37 +91,39 @@ export const enImprint: LegalPageContent = {
       ]
     },
     {
-      title: "Business activity",
+      title: "Business Profile",
       paragraphs: [
-        "Advisory, brokerage and marketing services relating to motor vehicles, aircraft, watercraft, luxury goods and other high-value assets, as well as the organisation and brokerage of individual services."
+        "The Circle Twelve is a private advisory and brokerage brand for selected assets and discreet individual mandates.",
+        "Its focus includes automotive, aviation, yachting, luxury assets and personally curated services for demanding private and international enquiries."
       ]
     },
     {
-      title: "Editorial responsibility",
+      title: "Editorial Responsibility",
       paragraphs: [`${site.proprietor}`, `Email: ${site.email}`]
     },
     {
-      title: "Consumer dispute resolution",
+      title: "Content and Availability",
+      paragraphs: [
+        "The content of this website is prepared with particular care. It is provided for general information and presentation purposes and does not constitute a binding offer.",
+        "The Circle Twelve reserves the right to update, supplement or remove content at any time."
+      ]
+    },
+    {
+      title: "External References",
+      paragraphs: [
+        "This website may refer to external third-party offerings. The respective provider is solely responsible for their content and availability."
+      ]
+    },
+    {
+      title: "Protective Rights",
+      paragraphs: [
+        "Texts, images, logos, design elements and other content on this website are protected by copyright or other protective rights. Any use beyond statutory permissions requires prior consent from the relevant rights holder."
+      ]
+    },
+    {
+      title: "Dispute Resolution",
       paragraphs: [
         "The Circle Twelve is neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board."
-      ]
-    },
-    {
-      title: "Liability for content",
-      paragraphs: [
-        "The content of this website is prepared with care. However, no warranty is given for its accuracy, completeness or timeliness."
-      ]
-    },
-    {
-      title: "Liability for links",
-      paragraphs: [
-        "This website may contain links to external third-party websites. The Circle Twelve has no influence over their content. The respective provider or operator is responsible for linked pages."
-      ]
-    },
-    {
-      title: "Copyright",
-      paragraphs: [
-        "The content, images, text, logos and design elements published on this website are protected by copyright and other protective rights. Use beyond statutory limits requires prior permission from the relevant rights holder."
       ]
     }
   ]
@@ -131,7 +135,7 @@ export const dePrivacy: LegalPageContent = {
   updated: "Juli 2026",
   sections: [
     {
-      title: "1. Verantwortliche",
+      title: "1. Verantwortliche Stelle",
       paragraphs: [
         `${site.proprietor}, handelnd unter der Geschaeftsbezeichnung ${site.brand}`,
         ...site.address,
@@ -139,69 +143,71 @@ export const dePrivacy: LegalPageContent = {
       ]
     },
     {
-      title: "2. Allgemeine Hinweise",
+      title: "2. Grundsatz",
       paragraphs: [
-        "The Circle Twelve verarbeitet personenbezogene Daten nur, soweit dies fuer den Betrieb dieser Website, die Bearbeitung von Anfragen oder die Erfuellung gesetzlicher Pflichten erforderlich ist."
+        "The Circle Twelve behandelt personenbezogene Daten vertraulich, zweckgebunden und mit dem Anspruch, Datenverarbeitung auf das Erforderliche zu beschraenken.",
+        "Personenbezogene Daten werden verarbeitet, wenn dies fuer den Betrieb der Website, die Bearbeitung einer Anfrage, vorvertragliche Kommunikation oder gesetzliche Pflichten erforderlich ist."
       ]
     },
     {
-      title: "3. Hosting und Server-Logfiles",
+      title: "3. Zugriff auf die Website",
       paragraphs: [
-        "Die Website wird ueber Vercel bereitgestellt. Beim Aufruf der Website koennen technisch erforderliche Zugriffsdaten verarbeitet werden, insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene URL, Referrer-URL, Browserinformationen und Betriebssysteminformationen.",
-        "Die Verarbeitung erfolgt zur sicheren Bereitstellung der Website, zur Fehleranalyse und zur Missbrauchsabwehr."
+        "Beim Aufruf der Website werden technische Zugriffsdaten verarbeitet. Dazu zaehlen insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, angeforderte Seite, Referrer, Browser- und Geraeteinformationen.",
+        "Diese Verarbeitung dient der sicheren Auslieferung der Website, der Stabilitaet des Angebots und dem Schutz vor missbraeuchlicher Nutzung."
       ]
     },
     {
       title: "4. Kontaktaufnahme",
       paragraphs: [
-        "Wenn Sie The Circle Twelve per E-Mail kontaktieren, werden die von Ihnen uebermittelten Angaben zur Bearbeitung Ihrer Anfrage verarbeitet. Dazu koennen Name, E-Mail-Adresse, Unternehmen, Telefonnummer, Interessengebiet und Inhalt Ihrer Nachricht gehoeren.",
-        "Rechtsgrundlage ist je nach Anfrage Art. 6 Abs. 1 lit. b DSGVO oder Art. 6 Abs. 1 lit. f DSGVO."
+        "Wenn Sie The Circle Twelve per E-Mail kontaktieren, werden die von Ihnen uebermittelten Angaben zur Bearbeitung Ihrer Anfrage verarbeitet.",
+        "Dazu koennen Name, Kontaktdaten, Unternehmen, Interessengebiet, Mandatsbezug und Inhalt der Nachricht gehoeren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO oder Art. 6 Abs. 1 lit. f DSGVO."
       ]
     },
     {
-      title: "5. Cookies und vergleichbare Technologien",
+      title: "5. Hosting",
       paragraphs: [
-        "Nach dem aktuellen technischen Stand der Website werden keine optionalen Analyse-, Marketing- oder Tracking-Cookies eingesetzt.",
-        "Soweit technisch erforderliche Cookies oder vergleichbare Technologien durch Hosting, Sicherheitsfunktionen oder den Browserbetrieb entstehen, dienen sie ausschliesslich dem sicheren und funktionalen Betrieb der Website."
+        "Die Website wird ueber einen externen Hosting-Anbieter bereitgestellt. Im Rahmen des Hostings werden technische Daten verarbeitet, die fuer Betrieb, Sicherheit und Auslieferung der Website erforderlich sind.",
+        "Mit eingesetzten Dienstleistern werden, soweit erforderlich, geeignete datenschutzrechtliche Vereinbarungen geschlossen."
       ]
     },
     {
-      title: "6. Schriftarten und externe Medien",
+      title: "6. Cookies und Technologien",
       paragraphs: [
-        "Die Website verwendet ueber Next.js bereitgestellte Schriftarten. Nach aktuellem Projektstand werden keine YouTube-, Vimeo-, Google-Maps-, TikTok-, Meta-Pixel-, Google-Analytics- oder vergleichbaren Tracking-Einbindungen geladen.",
-        "Der Instagram-Link im Footer ist ein normaler externer Link. Erst beim Anklicken verlassen Sie diese Website."
+        "Diese Website verwendet ausschliesslich Technologien, die fuer einen sicheren und zuverlaessigen Betrieb erforderlich sind.",
+        "Derzeit werden keine optionalen Analyse-, Marketing- oder Tracking-Technologien eingesetzt. Weitere Informationen finden Sie auf der Seite Cookies & Technologien."
       ]
     },
     {
-      title: "7. Speicherdauer",
+      title: "7. Externe Links",
       paragraphs: [
-        "Personenbezogene Daten werden nur so lange gespeichert, wie dies fuer den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen."
+        "Der Instagram-Link im Footer fuehrt zu einem externen Angebot. Erst mit dem Anklicken des Links verlassen Sie diese Website.",
+        "Fuer die Datenverarbeitung auf externen Plattformen ist der jeweilige Anbieter verantwortlich."
       ]
     },
     {
-      title: "8. Ihre Rechte",
-      paragraphs: ["Sie haben nach Massgabe der DSGVO insbesondere folgende Rechte:"],
-      bullets: [
-        "Auskunft",
-        "Berichtigung",
-        "Loeschung",
-        "Einschraenkung der Verarbeitung",
-        "Datenuebertragbarkeit",
-        "Widerspruch",
-        "Widerruf einer Einwilligung mit Wirkung fuer die Zukunft",
-        "Beschwerde bei einer Datenschutzaufsichtsbehoerde"
-      ]
-    },
-    {
-      title: "9. Sicherheit",
+      title: "8. Speicherdauer",
       paragraphs: [
-        "Diese Website nutzt HTTPS/TLS-Verschluesselung. Zusaetzlich werden technische Sicherheitsmassnahmen eingesetzt, soweit sie mit dem vorhandenen Hosting- und Website-Stack vereinbar sind."
+        "Personenbezogene Daten werden nur so lange gespeichert, wie es fuer den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.",
+        "Anfragen koennen laenger aufbewahrt werden, wenn dies zur Dokumentation, Mandatsanbahnung oder Wahrung berechtigter Interessen erforderlich ist."
       ]
     },
     {
-      title: "10. Aenderungen",
+      title: "9. Ihre Rechte",
       paragraphs: [
-        "Diese Datenschutzerklaerung kann angepasst werden, wenn sich rechtliche Anforderungen, technische Funktionen oder die tatsaechliche Datenverarbeitung aendern."
+        "Betroffene Personen haben nach Massgabe der DSGVO insbesondere Rechte auf Auskunft, Berichtigung, Loeschung, Einschraenkung der Verarbeitung, Datenuebertragbarkeit und Widerspruch.",
+        "Eine erteilte Einwilligung kann jederzeit mit Wirkung fuer die Zukunft widerrufen werden. Ausserdem besteht das Recht, sich bei einer Datenschutzaufsichtsbehoerde zu beschweren."
+      ]
+    },
+    {
+      title: "10. Sicherheit",
+      paragraphs: [
+        "Diese Website nutzt HTTPS/TLS-Verschluesselung. Technische und organisatorische Massnahmen schuetzen personenbezogene Daten vor unbefugtem Zugriff, Verlust und Missbrauch."
+      ]
+    },
+    {
+      title: "11. Aktualisierung",
+      paragraphs: [
+        "Diese Datenschutzerklaerung wird angepasst, wenn sich rechtliche Anforderungen, technische Funktionen oder tatsaechliche Verarbeitungsvorgaenge aendern."
       ]
     }
   ]
@@ -221,123 +227,143 @@ export const enPrivacy: LegalPageContent = {
       ]
     },
     {
-      title: "2. General information",
+      title: "2. Principle",
       paragraphs: [
-        "The Circle Twelve processes personal data only where necessary to operate this website, respond to enquiries or comply with legal obligations."
+        "The Circle Twelve handles personal data confidentially, for defined purposes and with a commitment to limiting processing to what is necessary.",
+        "Personal data is processed where required to operate the website, respond to an enquiry, conduct pre-contractual communication or comply with legal obligations."
       ]
     },
     {
-      title: "3. Hosting and server log files",
+      title: "3. Website Access",
       paragraphs: [
-        "This website is provided through Vercel. When the website is accessed, technically necessary access data may be processed, including IP address, date and time of access, requested URL, referrer URL, browser information and operating system information.",
-        "This processing serves the secure delivery of the website, troubleshooting and abuse prevention."
+        "When this website is accessed, technical access data is processed. This may include IP address, date and time of access, requested page, referrer, browser and device information.",
+        "This processing supports secure delivery of the website, service stability and protection against misuse."
       ]
     },
     {
       title: "4. Contact",
       paragraphs: [
-        "If you contact The Circle Twelve by email, the information you provide is processed to respond to your enquiry. This may include your name, email address, company, telephone number, area of interest and message content.",
-        "The legal basis is Art. 6(1)(b) GDPR or Art. 6(1)(f) GDPR, depending on the enquiry."
+        "If you contact The Circle Twelve by email, the information you provide is processed to respond to your enquiry.",
+        "This may include name, contact details, company, area of interest, mandate context and message content. The legal basis is Art. 6(1)(b) GDPR or Art. 6(1)(f) GDPR."
       ]
     },
     {
-      title: "5. Cookies and similar technologies",
+      title: "5. Hosting",
       paragraphs: [
-        "Based on the current technical state of this website, no optional analytics, marketing or tracking cookies are used.",
-        "Any technically necessary cookies or comparable technologies created by hosting, security functions or browser operation are used only for secure and functional website operation."
+        "This website is provided through an external hosting provider. Technical data required for operation, security and delivery of the website is processed in that context.",
+        "Where required, appropriate data protection agreements are concluded with service providers."
       ]
     },
     {
-      title: "6. Fonts and external media",
+      title: "6. Cookies and Technologies",
       paragraphs: [
-        "The website uses fonts provided through Next.js. Based on the current project state, no YouTube, Vimeo, Google Maps, TikTok, Meta Pixel, Google Analytics or comparable tracking integrations are loaded.",
-        "The Instagram link in the footer is a normal external link. You leave this website only when clicking it."
+        "This website uses only technologies required for secure and reliable operation.",
+        "No optional analytics, marketing or tracking technologies are currently used. Further information is available on the Cookies & Technologies page."
       ]
     },
     {
-      title: "7. Retention",
+      title: "7. External Links",
       paragraphs: [
-        "Personal data is retained only for as long as necessary for the respective purpose or as required by statutory retention obligations."
+        "The Instagram link in the footer leads to an external offering. You leave this website only when clicking the link.",
+        "The respective provider is responsible for data processing on external platforms."
       ]
     },
     {
-      title: "8. Your rights",
-      paragraphs: ["Subject to the GDPR, you have in particular the following rights:"],
-      bullets: [
-        "Access",
-        "Rectification",
-        "Erasure",
-        "Restriction of processing",
-        "Data portability",
-        "Objection",
-        "Withdrawal of consent with future effect",
-        "Complaint to a data protection supervisory authority"
-      ]
-    },
-    {
-      title: "9. Security",
+      title: "8. Retention",
       paragraphs: [
-        "This website uses HTTPS/TLS encryption. Additional technical security measures are used where compatible with the existing hosting and website stack."
+        "Personal data is retained only for as long as necessary for the relevant purpose or as required by statutory retention obligations.",
+        "Enquiries may be retained for a longer period where necessary for documentation, mandate preparation or the protection of legitimate interests."
       ]
     },
     {
-      title: "10. Changes",
+      title: "9. Your Rights",
       paragraphs: [
-        "This Privacy Policy may be updated if legal requirements, technical functions or actual data processing change."
+        "Data subjects have rights under the GDPR, including access, rectification, erasure, restriction of processing, data portability and objection.",
+        "Consent may be withdrawn at any time with effect for the future. You also have the right to lodge a complaint with a data protection supervisory authority."
+      ]
+    },
+    {
+      title: "10. Security",
+      paragraphs: [
+        "This website uses HTTPS/TLS encryption. Technical and organisational measures protect personal data against unauthorised access, loss and misuse."
+      ]
+    },
+    {
+      title: "11. Updates",
+      paragraphs: [
+        "This Privacy Policy is updated when legal requirements, technical functions or actual processing activities change."
       ]
     }
   ]
 };
 
 export const deCookies: LegalPageContent = {
-  title: "Cookie-Einstellungen",
+  title: "Cookies & Technologien",
   description: "Informationen zu Cookies und vergleichbaren Technologien bei The Circle Twelve.",
   updated: "Juli 2026",
   sections: [
     {
-      title: "1. Technischer Stand",
+      title: "Aktueller Einsatz",
       paragraphs: [
-        "Nach aktuellem Projektstand verwendet The Circle Twelve keine optionalen Analyse-, Marketing- oder Tracking-Cookies.",
-        "Es wird daher kein kuenstlich aufgeblähtes Consent-Banner angezeigt."
+        "Diese Website verwendet ausschliesslich Technologien, die fuer einen sicheren und zuverlaessigen Betrieb erforderlich sind.",
+        "Derzeit werden keine optionalen Analyse-, Marketing- oder Tracking-Technologien eingesetzt.",
+        "Es werden ausschliesslich technisch erforderliche Technologien genutzt, die fuer den sicheren Betrieb sowie ausdruecklich angeforderte Funktionen der Website notwendig sind."
       ]
     },
     {
-      title: "2. Erforderliche Technologien",
+      title: "Erforderliche Technologien",
       paragraphs: [
-        "Technisch erforderliche Verarbeitungen koennen durch Hosting, Sicherheitsfunktionen, HTTPS-Auslieferung und den normalen Browseraufruf entstehen. Sie dienen ausschliesslich dem sicheren Betrieb der Website."
+        "Technisch erforderliche Technologien unterstuetzen die sichere Bereitstellung der Website, gewaehren grundlegende Funktionen und tragen zur Stabilitaet sowie Sicherheit des Onlineangebots bei.",
+        "Sie dienen insbesondere der Navigation, der sicheren Datenuebertragung, dem Schutz vor missbraeuchlichen Zugriffen und der Bereitstellung ausdruecklich angeforderter Funktionen."
       ]
     },
     {
-      title: "3. Optionale Technologien",
+      title: "Optionale Technologien",
       paragraphs: [
-        "Sollten kuenftig optionale Analyse-, Funktions- oder Marketingtechnologien eingesetzt werden, werden diese nur nach vorheriger Einwilligung aktiviert und diese Seite entsprechend aktualisiert."
+        "Derzeit werden keine optionalen Analyse-, Statistik- oder Marketingtechnologien eingesetzt.",
+        "Sollten kuenftig entsprechende Technologien verwendet werden, erfolgt deren Einsatz ausschliesslich nach vorheriger Einwilligung. Diese Seite sowie die Datenschutzerklaerung werden in diesem Fall entsprechend aktualisiert."
+      ]
+    },
+    {
+      title: "Weitere Informationen",
+      paragraphs: [
+        "Weiterfuehrende Informationen zur Verarbeitung personenbezogener Daten finden Sie in unserer Datenschutzerklaerung."
       ]
     }
   ]
 };
 
 export const enCookies: LegalPageContent = {
-  title: "Cookie Settings",
+  title: "Cookies & Technologies",
   description: "Information about cookies and similar technologies used by The Circle Twelve.",
   updated: "July 2026",
   sections: [
     {
-      title: "1. Technical status",
+      title: "Current Use",
       paragraphs: [
-        "Based on the current project state, The Circle Twelve does not use optional analytics, marketing or tracking cookies.",
-        "For this reason, no artificial consent banner is displayed."
+        "This website uses only technologies required for secure and reliable operation.",
+        "No optional analytics, marketing or tracking technologies are currently used.",
+        "Only technically necessary technologies are used where required for secure operation and expressly requested website functions."
       ]
     },
     {
-      title: "2. Necessary technologies",
+      title: "Necessary Technologies",
       paragraphs: [
-        "Technically necessary processing may occur through hosting, security functions, HTTPS delivery and ordinary browser access. It is used only for secure website operation."
+        "Necessary technologies support secure website delivery, enable core functions and contribute to the stability and security of the online offering.",
+        "They serve in particular navigation, secure data transmission, protection against abusive access and the provision of expressly requested functions."
       ]
     },
     {
-      title: "3. Optional technologies",
+      title: "Optional Technologies",
       paragraphs: [
-        "If optional analytics, functionality or marketing technologies are used in the future, they will be activated only after prior consent and this page will be updated accordingly."
+        "No optional analytics, statistics or marketing technologies are currently used.",
+        "If such technologies are introduced in the future, they will be used only after prior consent. This page and the Privacy Policy will be updated accordingly."
+      ]
+    },
+    {
+      title: "Further Information",
+      paragraphs: [
+        "Further information on the processing of personal data is available in our Privacy Policy."
       ]
     }
   ]
@@ -351,84 +377,79 @@ export const deLegalNotice: LegalPageContent = {
     {
       title: "1. Charakter der Website",
       paragraphs: [
-        "Diese Website dient der Praesentation von The Circle Twelve sowie der allgemeinen Information ueber moegliche Beratungs-, Vermittlungs-, Vermarktungs- und Organisationsleistungen.",
-        "Die dargestellten Inhalte stellen kein verbindliches Angebot, keine Annahmeerklaerung, keine Garantie und keine verbindliche Zusicherung bestimmter Eigenschaften, Preise oder Verfuegbarkeiten dar."
+        "Diese Website praesentiert The Circle Twelve als private Brokerage- und Advisory-Marke fuer ausgewaehlte Vermoegenswerte und individuelle Mandate.",
+        "Alle Inhalte dienen der allgemeinen Information. Sie stellen kein Angebot, keine Annahme, keine Garantie und keine verbindliche Zusicherung dar."
       ]
     },
     {
-      title: "2. Rolle als Vermittlerin",
+      title: "2. Rolle von The Circle Twelve",
       paragraphs: [
-        "The Circle Twelve ist grundsaetzlich als unabhaengige Beratungs-, Kontakt-, Organisations- oder Vermittlungsstelle taetig.",
-        "Soweit nicht im Einzelfall ausdruecklich schriftlich anders angegeben, ist The Circle Twelve nicht Eigentuemerin, Herstellerin, Verkaeuferin, Charterbetreiberin oder unmittelbare Anbieterin der dargestellten Vermoegenswerte und Leistungen."
+        "The Circle Twelve agiert als unabhaengige Beratungs-, Kontakt- und Vermittlungsstelle.",
+        "Sofern nicht ausdruecklich schriftlich vereinbart, ist The Circle Twelve nicht Eigentuemerin, Herstellerin, Verkaeuferin, Charterbetreiberin oder unmittelbare Anbieterin der dargestellten Vermoegenswerte oder Leistungen."
       ]
     },
     {
-      title: "3. Drittangaben",
+      title: "3. Drittinformationen",
       paragraphs: [
-        "Angaben zu Fahrzeugen, Luftfahrzeugen, Wasserfahrzeugen, Luxusguetern, hochwertigen Vermoegenswerten oder sonstigen Angeboten koennen von Eigentuemerinnen, Verkaeufern, Anbietern, Kooperationspartnern oder anderen Dritten stammen.",
-        "Interessenten sollen alle wesentlichen Angaben vor Abschluss einer Transaktion eigenstaendig oder durch geeignete Fachleute pruefen lassen."
-      ],
-      bullets: [
-        "Preise, technische Daten und Ausstattung",
-        "Baujahre, Erstzulassungen, Betriebsstunden oder Kilometerstaende",
-        "Verfuegbarkeit, Herkunft, Zustand und Dokumentation",
-        "Fotografien, Unterlagen und historische Angaben"
+        "Informationen zu Fahrzeugen, Luftfahrzeugen, Wasserfahrzeugen, Luxusguetern, Sammlerstuecken oder sonstigen Vermoegenswerten koennen von Eigentuemerinnen, Verkaeufern, Partnern oder anderen Dritten stammen.",
+        "Interessenten sollten wesentliche Angaben vor einer Entscheidung eigenstaendig oder durch qualifizierte Fachpersonen pruefen lassen."
       ]
     },
     {
       title: "4. Preise und Verfuegbarkeit",
       paragraphs: [
-        "Preise, Verfuegbarkeiten und Spezifikationen koennen geaendert oder zurueckgezogen werden. Ohne ausdrueckliche schriftliche Bestaetigung besteht keine Gewaehr fuer Verfuegbarkeit, unveraenderte Preise, steuerliche Behandlung, Zulassung, Einfuhr, Gebuehren, Zoelle oder Transportkosten."
+        "Preise, Spezifikationen und Verfuegbarkeiten koennen sich aendern oder zurueckgezogen werden. Eine verbindliche Grundlage entsteht erst durch ausdrueckliche schriftliche Bestaetigung."
       ]
     },
     {
       title: "5. Off-Market und Vertraulichkeit",
       paragraphs: [
-        "Ein Teil der vermittelten Vermoegenswerte kann vertraulich oder ausserhalb oeffentlich zugaenglicher Maerkte angeboten werden. Weiterfuehrende Informationen koennen von Identitaetspruefung, Nachweis ernsthaften Interesses, Vertraulichkeitsvereinbarung, Letter of Intent, Proof of Funds oder weiteren transaktionsbezogenen Unterlagen abhaengig gemacht werden."
+        "Ein Teil der vermittelten Opportunitaeten kann vertraulich oder ausserhalb oeffentlich zugaenglicher Maerkte behandelt werden.",
+        "Weiterfuehrende Informationen koennen von Identitaetspruefung, ernsthaftem Interesse, Vertraulichkeitserklaerung, Finanzierungsnachweis oder weiteren transaktionsbezogenen Unterlagen abhaengen."
       ]
     },
     {
-      title: "6. KYC- und Pruefungsunterlagen",
+      title: "6. Pruefung und Compliance",
       paragraphs: [
-        "Abhaengig von Art, Wert, Struktur, Standort und Beteiligten einer Transaktion koennen Identitaets-, Unternehmens-, Vertretungs-, Finanzierungs- oder Compliance-Unterlagen verlangt werden.",
-        "Die Anforderung solcher Unterlagen kann dem Schutz der Beteiligten, der Vertraulichkeit, der Betrugspraevention oder den Anforderungen eines Eigentuemers, Verkaeufers, Anbieters oder Kooperationspartners dienen."
+        "Je nach Art, Wert, Struktur und Standort einer Transaktion koennen Identitaets-, Unternehmens-, Vertretungs-, Finanzierungs- oder Compliance-Unterlagen erforderlich sein.",
+        "Solche Pruefungen dienen dem Schutz der Beteiligten, der Vertraulichkeit und der Integritaet des Mandats."
       ]
     },
     {
-      title: "7. Keine Rechts-, Steuer-, Finanz- oder Anlageberatung",
+      title: "7. Keine Fachberatung",
       paragraphs: [
-        "Diese Website stellt keine Rechtsberatung, Steuerberatung, Finanzberatung, Anlageberatung, technische Begutachtung oder verbindliche Bewertung dar. Bei Bedarf sind geeignete Fachpersonen hinzuzuziehen."
+        "Diese Website ersetzt keine Rechts-, Steuer-, Finanz-, Anlage-, technische oder versicherungsbezogene Beratung. Fuer entsprechende Fragen sollten geeignete Fachpersonen hinzugezogen werden."
       ]
     },
     {
       title: "8. Keine Erfolgsgarantie",
       paragraphs: [
-        "Es besteht keine Garantie dafuer, dass ein gesuchter Vermoegenswert gefunden wird, eine Transaktion zustande kommt, ein bestimmter Preis erzielt wird, eine Anfrage akzeptiert wird oder Finanzierung, Einfuhr, Zulassung oder Versicherung moeglich ist."
+        "The Circle Twelve schuldet keinen bestimmten Transaktionserfolg. Dies gilt insbesondere fuer Verfuegbarkeit, Preis, Finanzierung, Zulassung, Einfuhr, Versicherung oder Annahme einer Anfrage."
       ]
     },
     {
-      title: "9. Vermittlungs- und Serviceverguetung",
+      title: "9. Verguetung",
       paragraphs: [
-        "Eine Vermittlungs-, Beratungs-, Organisations- oder Serviceverguetung entsteht nur auf Grundlage einer individuellen Vereinbarung oder einer anderen wirksamen rechtlichen Grundlage. Die Darstellung eines Vermoegenswertes auf der Website allein begruendet keine konkrete Provisionspflicht."
+        "Eine Beratungs-, Vermittlungs-, Organisations- oder Serviceverguetung entsteht nur auf Grundlage einer individuellen Vereinbarung oder einer sonstigen wirksamen rechtlichen Grundlage."
       ]
     },
     {
       title: "10. Marken und Schutzrechte",
       paragraphs: [
-        "Marken, Logos, Fotografien, Videos, Texte, Designs, Fahrzeugbezeichnungen und sonstige Inhalte koennen zugunsten von The Circle Twelve oder Dritten geschuetzt sein.",
-        "Die Darstellung fremder Marken oder Produkte bedeutet nicht automatisch, dass eine gesellschaftsrechtliche, vertragliche oder offizielle Verbindung zum jeweiligen Hersteller oder Markeninhaber besteht. Soweit nicht ausdruecklich anders angegeben, ist The Circle Twelve kein offizieller Vertragshaendler oder autorisierter Vertreter der dargestellten Hersteller."
+        "Marken, Logos, Designs, Fotografien, Fahrzeugbezeichnungen und sonstige Inhalte koennen zugunsten von The Circle Twelve oder Dritten geschuetzt sein.",
+        "Die Darstellung fremder Marken oder Produkte begruendet keine offizielle, gesellschaftsrechtliche oder vertragliche Verbindung zum jeweiligen Hersteller oder Rechteinhaber."
       ]
     },
     {
       title: "11. Verfuegbarkeit der Website",
       paragraphs: [
-        "Es besteht kein Anspruch auf jederzeit unterbrechungsfreie, fehlerfreie oder vollstaendige Verfuegbarkeit. Die Website und einzelne Inhalte koennen geaendert, eingeschraenkt oder eingestellt werden."
+        "Die Website kann aktualisiert, erweitert, eingeschraenkt oder eingestellt werden. Ein Anspruch auf ununterbrochene Verfuegbarkeit besteht nicht."
       ]
     },
     {
       title: "12. Sprachfassungen",
       paragraphs: [
-        "Englische Fassungen werden als Service fuer internationale Nutzer bereitgestellt. Bei Abweichungen ist die deutsche Fassung massgeblich, soweit gesetzlich zulaessig."
+        "Englische Fassungen werden fuer internationale Nutzer bereitgestellt. Bei Abweichungen ist die deutsche Fassung massgeblich, soweit dies rechtlich zulaessig ist."
       ]
     }
   ]
@@ -440,80 +461,81 @@ export const enLegalNotice: LegalPageContent = {
   updated: "July 2026",
   sections: [
     {
-      title: "1. Nature of this website",
+      title: "1. Nature of this Website",
       paragraphs: [
-        "This website presents The Circle Twelve and provides general information about possible advisory, brokerage, marketing and organisational services.",
-        "The content shown does not constitute a binding offer, acceptance, guarantee or binding assurance of specific characteristics, prices or availability."
+        "This website presents The Circle Twelve as a private brokerage and advisory brand for selected assets and individual mandates.",
+        "All content is provided for general information. It does not constitute an offer, acceptance, guarantee or binding assurance."
       ]
     },
     {
-      title: "2. Role as an intermediary",
+      title: "2. Role of The Circle Twelve",
       paragraphs: [
-        "The Circle Twelve generally acts as an independent advisory, contact, organisational or brokerage office.",
-        "Unless expressly stated otherwise in writing in an individual case, The Circle Twelve is not the owner, manufacturer, seller, charter operator or direct provider of the assets and services shown."
+        "The Circle Twelve acts as an independent advisory, contact and brokerage office.",
+        "Unless expressly agreed in writing, The Circle Twelve is not the owner, manufacturer, seller, charter operator or direct provider of the assets or services shown."
       ]
     },
     {
-      title: "3. Third-party information",
+      title: "3. Third-Party Information",
       paragraphs: [
-        "Information about motor vehicles, aircraft, watercraft, luxury goods, high-value assets or other offers may originate from owners, sellers, providers, cooperation partners or other third parties.",
-        "Interested parties should verify all material information independently or through suitable professionals before completing any transaction."
+        "Information regarding vehicles, aircraft, watercraft, luxury goods, collectibles or other assets may originate from owners, sellers, partners or other third parties.",
+        "Interested parties should verify material information independently or through qualified professionals before making any decision."
       ]
     },
     {
-      title: "4. Prices and availability",
+      title: "4. Pricing and Availability",
       paragraphs: [
-        "Prices, availability and specifications may change or be withdrawn. Unless expressly confirmed in writing, no assurance is given regarding availability, unchanged pricing, tax treatment, registration, import, fees, duties or transport costs."
+        "Prices, specifications and availability may change or be withdrawn. A binding basis is created only by express written confirmation."
       ]
     },
     {
-      title: "5. Off-market opportunities and confidentiality",
+      title: "5. Off-Market and Confidentiality",
       paragraphs: [
-        "Some assets may be offered confidentially or outside publicly accessible markets. Further information may depend on identity verification, proof of serious interest, confidentiality undertakings, a letter of intent, proof of funds or other transaction-related documents."
+        "Certain opportunities may be handled confidentially or outside publicly accessible markets.",
+        "Further information may depend on identity verification, serious interest, confidentiality undertakings, proof of funds or other transaction-related documentation."
       ]
     },
     {
-      title: "6. KYC and verification documents",
+      title: "6. Verification and Compliance",
       paragraphs: [
-        "Depending on the type, value, structure, location and parties involved in a transaction, identity, corporate, authority, financing or compliance documents may be requested.",
-        "Such requests may serve the protection of the parties, confidentiality, fraud prevention or requirements of an owner, seller, provider or cooperation partner."
+        "Depending on the type, value, structure and location of a transaction, identity, corporate, authority, financing or compliance documents may be required.",
+        "Such checks protect the parties, confidentiality and the integrity of the mandate."
       ]
     },
     {
-      title: "7. No legal, tax, financial or investment advice",
+      title: "7. No Professional Advice",
       paragraphs: [
-        "This website does not provide legal, tax, financial or investment advice, technical inspection or binding valuation. Suitable professionals should be consulted where required."
+        "This website does not replace legal, tax, financial, investment, technical or insurance advice. Appropriate professionals should be consulted for such matters."
       ]
     },
     {
-      title: "8. No guarantee of a successful transaction",
+      title: "8. No Guarantee of Success",
       paragraphs: [
-        "There is no guarantee that a desired asset will be found, a transaction will be completed, a certain price will be achieved, an enquiry will be accepted, or financing, import, registration or insurance will be possible."
+        "The Circle Twelve does not guarantee any specific transaction outcome. This includes availability, price, financing, registration, import, insurance or acceptance of an enquiry."
       ]
     },
     {
-      title: "9. Brokerage and service fees",
+      title: "9. Fees",
       paragraphs: [
-        "Any brokerage, advisory, organisational or service fee arises only on the basis of an individual agreement or another valid legal basis. The mere presentation of an asset on this website does not create a specific commission obligation."
+        "Any advisory, brokerage, organisational or service fee arises only on the basis of an individual agreement or another valid legal basis."
       ]
     },
     {
-      title: "10. Trademarks and protective rights",
+      title: "10. Trademarks and Rights",
       paragraphs: [
-        "Trademarks, logos, photographs, videos, texts, designs, vehicle designations and other content may be protected in favour of The Circle Twelve or third parties.",
-        "The depiction of third-party brands or products does not automatically indicate a corporate, contractual or official connection with the respective manufacturer or brand owner. Unless expressly stated otherwise, The Circle Twelve is not an official dealer or authorised representative of the manufacturers shown."
+        "Trademarks, logos, designs, photographs, vehicle designations and other content may be protected in favour of The Circle Twelve or third parties.",
+        "The depiction of third-party brands or products does not establish an official, corporate or contractual relationship with the relevant manufacturer or rights holder."
       ]
     },
     {
-      title: "11. Website availability",
+      title: "11. Website Availability",
       paragraphs: [
-        "There is no entitlement to uninterrupted, error-free or complete availability at all times. The website and individual content may be changed, restricted or discontinued."
+        "The website may be updated, expanded, restricted or discontinued. There is no entitlement to uninterrupted availability."
       ]
     },
     {
-      title: "12. Language versions",
+      title: "12. Language Versions",
       paragraphs: [
-        "English versions are provided as a service for international users. In case of discrepancies, the German version prevails to the extent legally permissible."
+        "English versions are provided for international users. In case of discrepancies, the German version prevails to the extent legally permissible."
       ]
     }
   ]
