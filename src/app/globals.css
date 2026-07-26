@@ -13,11 +13,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 10% 4%, rgba(168, 141, 102, 0.09), transparent 31rem),
     radial-gradient(circle at 83% 18%, rgba(244, 240, 232, 0.04), transparent 27rem),
@@ -42,6 +43,11 @@ button {
 
 a {
   text-decoration: none;
+}
+
+main,
+section {
+  overflow-x: clip;
 }
 
 .page-shell {
@@ -79,6 +85,21 @@ a {
     linear-gradient(90deg, transparent 0%, black 24%, black 64%, transparent 100%),
     linear-gradient(180deg, transparent 0%, black 18%, black 78%, transparent 100%);
   mask-composite: intersect;
+}
+
+.hero-drift {
+  animation: hero-drift 22s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.intro-image {
+  animation: intro-image 18s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.marquee-track {
+  animation: marquee-track 34s linear infinite;
+  padding-left: 2.5rem;
 }
 
 .field {
@@ -122,26 +143,52 @@ a {
   will-change: opacity, transform;
 }
 
-.asset-cycle:first-child {
-  opacity: 0;
-}
-
 @keyframes asset-cycle {
   0% {
     opacity: 0;
     transform: scale(1.025) translate3d(1rem, 0, 0);
   }
 
-  8%,
-  30% {
-    opacity: 0.74;
+  7%,
+  34% {
+    opacity: 0.82;
     transform: scale(1.01) translate3d(0, 0, 0);
   }
 
-  38%,
+  44%,
   100% {
     opacity: 0;
     transform: scale(1.025) translate3d(-1rem, 0, 0);
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.02) translate3d(-0.8rem, 0, 0);
+  }
+
+  to {
+    transform: scale(1.08) translate3d(1.1rem, -0.6rem, 0);
+  }
+}
+
+@keyframes intro-image {
+  from {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: scale(1.055) translate3d(-0.75rem, -0.45rem, 0);
+  }
+}
+
+@keyframes marquee-track {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -149,6 +196,12 @@ a {
   .asset-cycle {
     opacity: 0.68;
     transform: none;
+  }
+
+  .hero-drift,
+  .intro-image,
+  .marquee-track {
+    animation: none;
   }
 
   .asset-cycle:not(:first-child) {

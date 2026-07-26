@@ -17,15 +17,28 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "The Circle 12 | Access is Everything.",
+  title: "The Circle Twelve | Access is Everything.",
   description:
-    "Pre-launch presentation for The Circle 12, a discreet private access concept for rare vehicles, yachts, aircraft and selected luxury assets. No brokerage services are currently offered.",
-  metadataBase: new URL("https://thecircletwelve.com"),
+    "The Circle Twelve provides discreet advisory, brokerage and organisation services for automotive, aviation, yachting, luxury assets and individual services.",
+  metadataBase: new URL("https://www.thecircletwelve.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: "/",
+      "de-DE": "/de/impressum"
+    }
+  },
   openGraph: {
-    title: "The Circle 12",
+    title: "The Circle Twelve",
     description:
-      "Pre-launch presentation for a discreet private access concept. No brokerage services are currently offered.",
+      "Discreet advisory, brokerage and organisation services for selected luxury assets and private access.",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Circle Twelve",
+    description:
+      "Discreet advisory, brokerage and organisation services for selected luxury assets and private access."
   }
 };
 
@@ -34,9 +47,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "The Circle Twelve",
+    url: "https://www.thecircletwelve.com",
+    email: "info@thecircletwelve.com",
+    founder: {
+      "@type": "Person",
+      name: "Celine Landgraf"
+    },
+    areaServed: "International",
+    serviceType: [
+      "Automotive advisory and brokerage",
+      "Aviation advisory and organisation",
+      "Yachting advisory and brokerage",
+      "Luxury asset advisory and brokerage",
+      "Individual services"
+    ]
+  };
+
   return (
     <html lang="en" className={`${alegreya.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </body>
     </html>
   );
 }
