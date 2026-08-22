@@ -17,9 +17,9 @@ export function LegalPage({
         <img
           src="/images/logo/logostahl.jpg.jpg"
           alt=""
-          className="absolute inset-x-0 top-0 h-[48rem] w-full object-cover object-[50%_22%] opacity-20 sm:h-[58rem] sm:object-[50%_24%] lg:h-[72rem] lg:object-[46%_24%] xl:h-[78rem]"
+          className="absolute inset-x-0 top-0 h-[48rem] w-full object-cover object-[50%_22%] opacity-16 sm:h-[58rem] sm:object-[50%_24%] lg:h-[72rem] lg:object-[46%_24%] xl:h-[78rem]"
         />
-        <div className="absolute inset-x-0 top-0 h-[50rem] bg-gradient-to-b from-black/70 via-[#080705]/72 to-[#080705] sm:h-[60rem] lg:h-[74rem] xl:h-[80rem]" />
+        <div className="absolute inset-x-0 top-0 h-[50rem] bg-gradient-to-b from-black/76 via-[#080705]/82 to-[#080705] sm:h-[60rem] lg:h-[74rem] xl:h-[80rem]" />
         <div className="relative mx-auto max-w-[92rem]">
         <header className="flex items-center justify-between gap-6 border-b border-white/10 pb-6">
           <Link href="/" className="font-serif text-2xl tracking-wide transition hover:text-[#d3b98d] sm:text-3xl">
@@ -53,7 +53,7 @@ export function LegalPage({
             {content.sections.map((section) => (
               <section
                 key={section.title}
-                className="border border-white/10 bg-black/28 p-5 backdrop-blur-sm sm:p-7"
+                className="border border-white/10 bg-black/72 p-5 shadow-[0_22px_70px_rgba(0,0,0,0.28)] backdrop-blur-sm sm:p-7"
               >
                 <h2 className="font-serif text-2xl leading-tight text-pearl sm:text-3xl">
                   {section.title}

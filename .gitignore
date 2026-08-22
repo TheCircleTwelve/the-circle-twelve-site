@@ -9,3 +9,4 @@ dist
 tsconfig.tsbuildinfo
 dev-server*.log
 dev-server*.err.log
+.vercel

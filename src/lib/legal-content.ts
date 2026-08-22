@@ -138,7 +138,6 @@ export const dePrivacy: LegalPageContent = {
       title: "1. Verantwortliche Stelle",
       paragraphs: [
         `${site.proprietor}, handelnd unter der Geschaeftsbezeichnung ${site.brand}`,
-        ...site.address,
         `E-Mail: ${site.email}`
       ]
     },
@@ -222,7 +221,6 @@ export const enPrivacy: LegalPageContent = {
       title: "1. Controller",
       paragraphs: [
         `${site.proprietor}, trading as ${site.brand}`,
-        ...site.addressEn,
         `Email: ${site.email}`
       ]
     },

@@ -19,7 +19,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "The Circle Twelve | Access is Everything.",
   description:
-    "The Circle Twelve provides discreet advisory, brokerage and organisation services for automotive, aviation, yachting, luxury assets and individual services.",
+    "Private sourcing and brokerage of exceptional automobiles, built around access, relationships and discretion.",
   metadataBase: new URL("https://www.thecircletwelve.com"),
   alternates: {
     canonical: "/",
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Circle Twelve",
     description:
-      "Discreet advisory, brokerage and organisation services for selected luxury assets and private access.",
+      "Private sourcing and brokerage of exceptional automobiles, built around access, relationships and discretion.",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "The Circle Twelve",
     description:
-      "Discreet advisory, brokerage and organisation services for selected luxury assets and private access."
+      "Private sourcing and brokerage of exceptional automobiles, built around access, relationships and discretion."
   }
 };
 
