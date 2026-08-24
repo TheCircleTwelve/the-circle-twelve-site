@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   description:
     "Private sourcing and brokerage of exceptional automobiles, built around access, relationships and discretion.",
   metadataBase: new URL("https://www.thecircletwelve.com"),
+  other: {
+    google: "notranslate"
+  },
   alternates: {
     canonical: "/",
     languages: {
@@ -68,8 +71,8 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${alegreya.variable} ${cormorant.variable}`}>
-      <body>
+    <html lang="en" translate="no" className={`${alegreya.variable} ${cormorant.variable} notranslate`}>
+      <body translate="no" className="notranslate">
         {children}
         <script
           type="application/ld+json"
