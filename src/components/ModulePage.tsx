@@ -37,13 +37,13 @@ export function ModulePage({ module }: { module: AccessModule }) {
 
       <section className="mx-auto grid max-w-[96rem] gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:px-12 lg:py-24">
         <div className="bg-[#f0e7d6] px-6 py-10 text-[#16110b] sm:px-10 lg:px-12">
-          <p className="text-[0.62rem] uppercase tracking-[0.4em] text-[#806742]">
+          <p className="text-[0.62rem] font-semibold uppercase tracking-[0.4em] text-[#5f4728]">
             Module
           </p>
           <h2 className="mt-6 font-serif text-5xl leading-[0.95] sm:text-7xl">
             Request-led access.
           </h2>
-          <p className="mt-8 text-lg leading-9 text-[#3c3122]">
+          <p className="mt-8 text-lg font-medium leading-9 text-[#21180f]">
             {module.description}
           </p>
         </div>

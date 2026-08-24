@@ -107,8 +107,8 @@ export default function AboutUsPage() {
                       {chapter.people.map((person) => (
                         <div key={person.name} className="bg-[#f0e7d6] p-6 text-[#16110b] sm:p-8">
                           <h3 className="font-serif text-4xl leading-none">{person.name}</h3>
-                          <p className="mt-3 text-[0.62rem] uppercase tracking-[0.24em] text-[#806742]">{person.role}</p>
-                          <p className="mt-6 text-base leading-7 text-[#3c3122]">{person.text}</p>
+                          <p className="mt-3 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[#5f4728]">{person.role}</p>
+                          <p className="mt-6 text-base font-medium leading-7 text-[#21180f]">{person.text}</p>
                         </div>
                       ))}
                     </div>

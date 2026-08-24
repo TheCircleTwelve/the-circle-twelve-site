@@ -8,7 +8,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-black/84 to-transparent">
+    <header className={`fixed inset-x-0 top-0 z-50 ${open ? "bg-[#080705]" : "bg-gradient-to-b from-black/84 to-transparent"}`}>
       <nav className="mx-auto flex h-24 max-w-[96rem] items-center justify-between px-5 sm:px-8 lg:px-12">
         <Link href="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <span className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full border border-[#d3b98d]/45 bg-black shadow-[0_0_42px_rgba(211,185,141,0.18)]">
@@ -61,7 +61,7 @@ export function SiteHeader() {
       </nav>
 
       {open ? (
-        <div id="mobile-menu" className="fixed inset-0 z-40 bg-[#080705]/98 px-5 pb-10 pt-28 text-pearl lg:hidden">
+        <div id="mobile-menu" className="fixed inset-0 z-40 overflow-y-auto bg-[#080705] px-5 pb-10 pt-28 text-pearl shadow-[0_30px_90px_rgba(0,0,0,0.55)] lg:hidden">
           <div className="mx-auto grid max-w-2xl gap-5">
             {navigation.map((item) => (
               <div key={item.label} className="border-b border-white/10 pb-5">

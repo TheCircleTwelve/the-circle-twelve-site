@@ -30,7 +30,7 @@ export default function NetworkPage() {
 
       <section className="bg-[#f0e7d6] px-5 py-10 text-[#16110b] sm:px-8 lg:px-12">
         <div className="mx-auto max-w-[96rem]">
-          <p className="max-w-4xl text-xl leading-9 text-[#3c3122]">
+          <p className="max-w-4xl text-xl font-medium leading-9 text-[#21180f]">
             We source exceptional assets for private clients while connecting owners with qualified buyers through an international network built over time.
           </p>
         </div>

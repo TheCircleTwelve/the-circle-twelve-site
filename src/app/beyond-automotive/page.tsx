@@ -53,7 +53,7 @@ export default function BeyondAutomotivePage() {
 
       <section className="bg-[#f0e7d6] px-5 py-10 text-[#16110b] sm:px-8 lg:px-12">
         <div className="mx-auto max-w-[96rem]">
-          <p className="max-w-4xl text-xl leading-9 text-[#3c3122]">
+          <p className="max-w-4xl text-xl font-medium leading-9 text-[#21180f]">
             We do not present these areas as a permanent public portfolio. They become relevant when a specific client request, partner opportunity or trusted introduction makes sense.
           </p>
         </div>

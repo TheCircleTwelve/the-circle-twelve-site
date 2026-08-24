@@ -44,17 +44,17 @@ export function ContactGateway() {
       ))}
 
       <div className="bg-[#f0e7d6] p-6 text-[#16110b] sm:p-8 lg:col-span-3">
-        <p className="text-[0.62rem] uppercase tracking-[0.34em] text-[#806742]">
+        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#5f4728]">
           {active.subject}
         </p>
         <h3 className="mt-4 font-serif text-4xl leading-none sm:text-5xl">
           Write to The Circle Twelve directly.
         </h3>
-        <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-sm uppercase tracking-[0.24em] text-[#3c3122]">
-          <a href={`mailto:${contactEmail}?subject=${encodeURIComponent(active.subject)}`} className="transition hover:text-[#806742]">
+        <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#21180f]">
+          <a href={`mailto:${contactEmail}?subject=${encodeURIComponent(active.subject)}`} className="transition hover:text-[#5f4728]">
             {contactEmail}
           </a>
-          <a href={instagramUrl} className="transition hover:text-[#806742]">
+          <a href={instagramUrl} className="transition hover:text-[#5f4728]">
             Instagram
           </a>
         </div>

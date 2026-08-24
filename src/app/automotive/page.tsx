@@ -49,15 +49,15 @@ export default function AutomotivePage() {
       <section id="private-sourcing" className="mx-auto max-w-[96rem] scroll-mt-28 px-5 py-10 sm:px-8 lg:px-12 lg:py-16">
         <div className="grid gap-8 bg-[#f0e7d6] p-6 text-[#16110b] shadow-[0_28px_90px_rgba(0,0,0,0.26)] sm:p-9 lg:grid-cols-[1fr_auto] lg:items-end lg:p-12">
           <div>
-            <p className="text-[0.62rem] uppercase tracking-[0.4em] text-[#806742]">Private Sourcing</p>
+            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.4em] text-[#5f4728]">Private Sourcing</p>
             <h2 className="mt-5 font-serif text-4xl leading-none sm:text-6xl">
               Looking for a specific car?
             </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#3c3122]">
+            <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[#21180f]">
               Our network extends beyond publicly advertised inventory. Specific searches are handled discreetly and individually.
             </p>
           </div>
-          <Link href="/contact" className="inline-flex w-fit items-center gap-4 text-[0.62rem] uppercase tracking-[0.28em] text-[#806742] transition hover:text-[#16110b]">
+          <Link href="/contact" className="inline-flex w-fit items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[#5f4728] transition hover:text-[#16110b]">
             Start a Private Search
             <span className="h-px w-12 bg-current" />
           </Link>
@@ -99,11 +99,11 @@ export default function AutomotivePage() {
             <div key={model} className="grid gap-4 bg-[#f0e7d6] p-6 text-[#16110b] sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
               <div>
                 <h3 className="font-serif text-4xl leading-none">{model}</h3>
-                <p className="mt-3 text-sm uppercase tracking-[0.22em] text-[#806742]">
+                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#5f4728]">
                   {spec} / {note}
                 </p>
               </div>
-              <Link href="/contact" className="text-[0.62rem] uppercase tracking-[0.24em] text-[#806742] transition hover:text-[#16110b]">
+              <Link href="/contact" className="inline-flex w-fit items-center justify-center border border-[#5f4728] px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#21180f] transition hover:bg-[#21180f] hover:text-[#f0e7d6] sm:justify-self-end sm:text-sm">
                 I have this car
               </Link>
             </div>

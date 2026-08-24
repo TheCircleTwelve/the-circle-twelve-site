@@ -46,7 +46,7 @@ export default function Home() {
           <div className="lg:pb-4">
             <aside className="border border-[#d3b98d]/18 bg-black/34 p-3 shadow-[0_28px_90px_rgba(0,0,0,0.38)] backdrop-blur-md">
               <div className="bg-[#f0e7d6] px-5 py-4 text-[#16110b]">
-                <p className="text-[0.58rem] uppercase tracking-[0.34em] text-[#806742]">Menu</p>
+                <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#5f4728]">Menu</p>
               </div>
               <div className="grid gap-px bg-white/10">
                 {coverLinks.map((item) => (
@@ -67,7 +67,7 @@ export default function Home() {
       </section>
 
       <section className="border-y border-[#d3b98d]/22 bg-[#f0e7d6] px-5 py-8 text-[#16110b] sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[96rem] flex-wrap gap-x-10 gap-y-3 text-[0.62rem] uppercase tracking-[0.34em] text-[#806742]">
+        <div className="mx-auto flex max-w-[96rem] flex-wrap gap-x-10 gap-y-3 text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#5f4728]">
           <span>Private Members Club</span>
           <span>Automotive Editorial</span>
           <span>Boutique Brokerage</span>
