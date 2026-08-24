@@ -89,17 +89,17 @@ export const navigationByLanguage: Record<Language, NavigationItem[]> = {
   de: [
     { label: "Start", href: "/de" },
     {
-      label: "Automotive",
+      label: "Fahrzeuge",
       href: "/de/automotive",
       items: [
-        { label: "Verfuegbar", href: "/de/automotive#available" },
+        { label: "Verfügbar", href: "/de/automotive#available" },
         { label: "Gesucht", href: "/de/automotive#wanted" },
         { label: "Vermittelt & Beschafft", href: "/de/automotive#sold-sourced" },
         { label: "Private Suche", href: "/de/automotive#private-sourcing" }
       ]
     },
     {
-      label: "Ueber uns",
+      label: "Über uns",
       href: "/de/about-us",
       items: [
         { label: "Wer wir sind", href: "/de/about-us#who-we-are" },
@@ -107,12 +107,12 @@ export const navigationByLanguage: Record<Language, NavigationItem[]> = {
       ]
     },
     {
-      label: "Beyond Automotive",
+      label: "Weitere Bereiche",
       href: "/de/beyond-automotive",
       items: [
-        { label: "Aviation", href: "/de/beyond-automotive#aviation" },
+        { label: "Luftfahrt", href: "/de/beyond-automotive#aviation" },
         { label: "Yachten", href: "/de/beyond-automotive#yachts" },
-        { label: "Collectibles & Art", href: "/de/beyond-automotive#collectibles-art" }
+        { label: "Sammlerstücke & Kunst", href: "/de/beyond-automotive#collectibles-art" }
       ]
     },
     { label: "Netzwerk", href: "/de/network" },

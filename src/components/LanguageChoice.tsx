@@ -26,11 +26,13 @@ export function LanguageChoice() {
         <p className="text-[0.62rem] uppercase tracking-[0.42em] text-[#d3b98d]">
           The Circle Twelve
         </p>
-        <h2 className="mt-5 font-serif text-4xl leading-none sm:text-5xl">
-          Choose your language.
-        </h2>
+        <div className="mt-5 border border-white/10 bg-[#080705] px-5 py-5 shadow-[0_20px_70px_rgba(0,0,0,0.34)]">
+          <h2 className="font-serif text-4xl leading-none sm:text-5xl">
+            Ihre Sprache wählen.
+          </h2>
+        </div>
         <p className="mt-5 text-base leading-7 text-[#d8d0c2]">
-          Bitte waehlen Sie Ihre bevorzugte Sprache. You can change this later at any time.
+          Bitte wählen Sie Ihre bevorzugte Sprache. Sie können diese Auswahl später jederzeit ändern.
         </p>
         <div className="mt-8 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
           <button

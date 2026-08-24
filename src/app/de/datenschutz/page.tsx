@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/legal/LegalPage";
 import { dePrivacy } from "@/lib/legal-content";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklaerung | The Circle Twelve",
+  title: "Datenschutzerklärung | The Circle Twelve",
   description: dePrivacy.description,
   alternates: { canonical: "/de/datenschutz" }
 };

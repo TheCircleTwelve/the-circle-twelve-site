@@ -33,14 +33,14 @@ const enquiryTypesDe = [
   },
   {
     id: "sell",
-    title: "Ich moechte ein Fahrzeug anbieten",
+    title: "Ich möchte ein Fahrzeug anbieten",
     button: "Fahrzeug vorstellen",
     subject: "Fahrzeugangebot"
   },
   {
     id: "opportunity",
     title: "Ich habe eine private Gelegenheit",
-    button: "The Circle kontaktieren",
+    button: "Kontakt aufnehmen",
     subject: "Private Gelegenheit"
   }
 ];
@@ -70,7 +70,7 @@ export function ContactGateway({ language = "en" }: { language?: "en" | "de" }) 
           {active.subject}
         </p>
         <h3 className="mt-4 font-serif text-4xl leading-none sm:text-5xl">
-          {language === "de" ? "Schreiben Sie The Circle Twelve direkt." : "Write to The Circle Twelve directly."}
+          {language === "de" ? "Schreiben Sie uns direkt." : "Write to The Circle Twelve directly."}
         </h3>
         <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#21180f]">
           <a href={`mailto:${contactEmail}?subject=${encodeURIComponent(active.subject)}`} className="transition hover:text-[#5f4728]">

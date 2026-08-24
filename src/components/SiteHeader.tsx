@@ -75,7 +75,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls="mobile-menu"
           >
-            {language === "de" ? "Menue" : "Menu"}
+            {language === "de" ? "Menü" : "Menu"}
           </button>
         </div>
       </nav>

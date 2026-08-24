@@ -3,16 +3,16 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "The Circle Twelve | Privater Automotive Access",
+  title: "The Circle Twelve | Privater Zugang zu besonderen Fahrzeugen",
   description:
-    "Diskrete Beschaffung und Vermittlung aussergewoehnlicher Automobile, aufgebaut auf Zugang, Beziehungen und Vertrauen.",
+    "Diskrete Beschaffung und Vermittlung außergewöhnlicher Automobile, aufgebaut auf Zugang, Beziehungen und Vertrauen.",
   alternates: { canonical: "/de" }
 };
 
 const coverLinks = [
-  { title: "Automotive", href: "/de/automotive", kicker: "Hauptbereich" },
-  { title: "Ueber uns", href: "/de/about-us", kicker: "Die Menschen" },
-  { title: "Beyond Automotive", href: "/de/beyond-automotive", kicker: "Erweitertes Netzwerk" },
+  { title: "Fahrzeuge", href: "/de/automotive", kicker: "Hauptbereich" },
+  { title: "Über uns", href: "/de/about-us", kicker: "Die Menschen" },
+  { title: "Weitere Bereiche", href: "/de/beyond-automotive", kicker: "Erweitertes Netzwerk" },
   { title: "Netzwerk", href: "/de/network", kicker: "Beziehungen" },
   { title: "Kontakt", href: "/de/contact", kicker: "Private Anfragen" }
 ];
@@ -40,13 +40,13 @@ export default function GermanHome() {
 
             <div className="max-w-4xl">
               <p className="mb-6 text-[0.62rem] uppercase tracking-[0.5em] text-[#d3b98d]">
-                Private Access
+                Privater Zugang
               </p>
               <h1 className="font-serif text-[2.85rem] leading-[0.92] text-pearl sm:text-[4.9rem] lg:text-[5.9rem]">
-                Privater Automotive Access.
+                Zugang zu besonderen Fahrzeugen.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-[#d8d0c2] sm:text-xl sm:leading-9">
-                Aussergewoehnliche Fahrzeuge, diskrete Gelegenheiten und die richtigen Verbindungen.
+                Außergewöhnliche Fahrzeuge, diskrete Gelegenheiten und die richtigen Verbindungen.
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function GermanHome() {
           <div className="lg:pb-4">
             <aside className="border border-[#d3b98d]/18 bg-black/34 p-3 shadow-[0_28px_90px_rgba(0,0,0,0.38)] backdrop-blur-md">
               <div className="bg-[#f0e7d6] px-5 py-4 text-[#16110b]">
-                <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#5f4728]">Menue</p>
+                <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-[#5f4728]">Menü</p>
               </div>
               <div className="grid gap-px bg-white/10">
                 {coverLinks.map((item) => (
@@ -76,9 +76,9 @@ export default function GermanHome() {
 
       <section className="border-y border-[#d3b98d]/22 bg-[#f0e7d6] px-5 py-8 text-[#16110b] sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-[96rem] flex-wrap gap-x-10 gap-y-3 text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-[#5f4728]">
-          <span>Private Mandate</span>
-          <span>Automotive Network</span>
-          <span>Boutique Brokerage</span>
+          <span>Diskrete Mandate</span>
+          <span>Fahrzeugnetzwerk</span>
+          <span>Diskrete Vermittlung</span>
         </div>
       </section>
 

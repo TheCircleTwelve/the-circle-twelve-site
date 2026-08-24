@@ -6,9 +6,9 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { availableCars, wantedCars } from "@/lib/site-structure";
 
 export const metadata: Metadata = {
-  title: "Automotive | The Circle Twelve",
+  title: "Fahrzeuge | The Circle Twelve",
   description:
-    "Private Automotive-Beschaffung und diskrete Vermittlung fuer Sammlerfahrzeuge, Sportwagen, Hypercars und ausgewaehlte Off-Market-Gelegenheiten.",
+    "Private Fahrzeugbeschaffung und diskrete Vermittlung für Sammlerfahrzeuge, Sportwagen, Hypercars und ausgewählte nicht öffentlich angebotene Gelegenheiten.",
   alternates: { canonical: "/de/automotive" }
 };
 
@@ -22,22 +22,22 @@ export default function GermanAutomotivePage() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,7,5,0.98)_0%,rgba(8,7,5,0.76)_50%,rgba(8,7,5,0.38)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#080705] to-transparent" />
         <div className="relative mx-auto flex min-h-[82svh] max-w-[96rem] flex-col justify-end px-5 pb-14 pt-32 sm:px-8 lg:px-12 lg:pb-20">
-          <p className="mb-7 text-[0.62rem] uppercase tracking-[0.5em] text-[#d3b98d]">Automotive</p>
+          <p className="mb-7 text-[0.62rem] uppercase tracking-[0.5em] text-[#d3b98d]">Fahrzeuge</p>
           <h1 className="max-w-4xl font-serif text-[2.85rem] leading-[0.92] sm:text-[4.9rem] lg:text-[5.9rem]">
-            Aussergewoehnliche Fahrzeuge, diskret begleitet.
+            Außergewöhnliche Fahrzeuge, diskret begleitet.
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-8 text-[#d8d0c2] sm:text-xl sm:leading-9">
-            Wir beschaffen, platzieren und vermitteln ausgewaehlte Automobile ueber direkte Beziehungen zu Eigentuemerinnen und Eigentuemern, Sammlern, Haendlern und vertrauten Partnern.
+            Wir beschaffen, platzieren und vermitteln ausgewählte Automobile über direkte Beziehungen zu Eigentümerinnen und Eigentümern, Sammlern, Händlern und vertrauten Partnern.
           </p>
           <div className="mt-8 max-w-3xl border-l border-[#d3b98d]/45 pl-5 text-base leading-8 text-[#d8d0c2] sm:text-lg">
             <p className="font-serif text-2xl leading-tight text-pearl sm:text-3xl">
-              Exceptional Cars stehen im Mittelpunkt unserer Arbeit.
+              Außergewöhnliche Fahrzeuge stehen im Mittelpunkt unserer Arbeit.
             </p>
             <p className="mt-5">
-              Von privat angebotenen Sammlerfahrzeugen bis zu konkreten Suchauftraegen arbeiten wir ueber ein internationales Netzwerk daran, die richtigen Fahrzeuge mit den richtigen Menschen zu verbinden.
+              Von privat angebotenen Sammlerfahrzeugen bis zu konkreten Suchaufträgen arbeiten wir über ein internationales Netzwerk daran, die richtigen Fahrzeuge mit den richtigen Menschen zu verbinden.
             </p>
             <p className="mt-4">
-              Einige Gelegenheiten entstehen direkt ueber Eigentuemer und Sammler, andere ueber vertraute Partner und Spezialisten. Viele Mandate beginnen mit einem sehr bestimmten Wunsch: ein Modell, eine Spezifikation, eine Historie oder schlicht ein Fahrzeug, das oeffentlich kaum zu finden ist.
+              Einige Gelegenheiten entstehen direkt über Eigentümer und Sammler, andere über vertraute Partner und Spezialisten. Viele Mandate beginnen mit einem sehr bestimmten Wunsch: ein Modell, eine Spezifikation, eine Historie oder schlicht ein Fahrzeug, das öffentlich kaum zu finden ist.
             </p>
             <p className="mt-4">
               Ob wir ein Fahrzeug platzieren oder im Auftrag eines Kunden suchen, der Prozess bleibt direkt, diskret und auf das Wesentliche konzentriert.
@@ -54,7 +54,7 @@ export default function GermanAutomotivePage() {
               Suchen Sie ein bestimmtes Fahrzeug?
             </h2>
             <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[#21180f]">
-              Unser Netzwerk reicht ueber oeffentlich angebotene Fahrzeuge hinaus. Konkrete Suchauftraege behandeln wir individuell, diskret und mit klarem Blick auf Timing und Kontext.
+              Unser Netzwerk reicht über öffentlich angebotene Fahrzeuge hinaus. Konkrete Suchaufträge behandeln wir individuell, diskret und mit klarem Blick auf Timing und Kontext.
             </p>
           </div>
           <Link href="/de/contact" className="inline-flex w-fit items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[#5f4728] transition hover:text-[#16110b]">
@@ -66,10 +66,10 @@ export default function GermanAutomotivePage() {
 
       <section id="available" className="mx-auto grid max-w-[96rem] scroll-mt-28 gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[0.55fr_1.45fr] lg:px-12 lg:py-20">
         <div>
-          <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#d3b98d]">Verfuegbar</p>
-          <h2 className="mt-6 font-serif text-5xl leading-[0.9] sm:text-7xl">Ausgewaehlte Gelegenheiten.</h2>
+          <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#d3b98d]">Verfügbar</p>
+          <h2 className="mt-6 font-serif text-5xl leading-[0.9] sm:text-7xl">Ausgewählte Gelegenheiten.</h2>
           <p className="mt-7 text-lg leading-8 text-[#d8d0c2]">
-            Ein diskreter Ueberblick ueber Fahrzeuge, die ueber unser privates Netzwerk verfuegbar sein koennen.
+            Ein diskreter Überblick über Fahrzeuge, die über unser privates Netzwerk verfügbar sein können.
           </p>
         </div>
         <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
@@ -81,8 +81,8 @@ export default function GermanAutomotivePage() {
                 <h3 className="mt-2 font-serif text-4xl leading-none sm:text-6xl">{car.model}</h3>
               </div>
               <div className="text-sm uppercase tracking-[0.2em] text-[#d8d0c2] sm:text-right">
-                <p>{car.label === "Selected access" ? "Ausgewaehlter Zugang" : "Private Vorstellung"}</p>
-                <p className="mt-2 text-[#d3b98d]/78">Kontakt fuer weitere Informationen</p>
+                <p>{car.label === "Selected access" ? "Ausgewählter Zugang" : "Private Vorstellung"}</p>
+                <p className="mt-2 text-[#d3b98d]/78">Kontakt für weitere Informationen</p>
               </div>
             </article>
           ))}
@@ -116,7 +116,7 @@ export default function GermanAutomotivePage() {
           <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#d3b98d]">Vermittelt & Beschafft</p>
           <h2 className="mt-6 font-serif text-5xl leading-[0.9] sm:text-7xl">Abgeschlossene Mandate.</h2>
           <p className="mt-7 max-w-4xl text-lg leading-8 text-[#d8d0c2]">
-            Dieser Bereich ist echten abgeschlossenen Mandaten vorbehalten. Er bleibt bewusst selektiv und waechst nur mit relevanten Transaktionen.
+            Dieser Bereich ist echten abgeschlossenen Mandaten vorbehalten. Er bleibt bewusst selektiv und wächst nur mit relevanten Transaktionen.
           </p>
         </div>
       </section>

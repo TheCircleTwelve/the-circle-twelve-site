@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Kontakt | The Circle Twelve",
-  description: "Kontaktieren Sie The Circle Twelve fuer private Fahrzeugsuchen, Fahrzeugangebote und ausgewaehlte Gelegenheiten.",
+  description: "Kontaktieren Sie The Circle Twelve für private Fahrzeugsuchen, Fahrzeugangebote und ausgewählte Gelegenheiten.",
   alternates: { canonical: "/de/contact" }
 };
 
@@ -20,10 +20,10 @@ export default function GermanContactPage() {
         <div className="relative mx-auto flex min-h-[76svh] max-w-[96rem] flex-col justify-end px-5 pb-14 pt-32 sm:px-8 lg:px-12 lg:pb-20">
           <p className="text-[0.62rem] uppercase tracking-[0.5em] text-[#d3b98d]">Kontakt</p>
           <h1 className="mt-7 max-w-4xl font-serif text-[2.85rem] leading-[0.94] sm:text-[4.8rem] lg:text-[5.7rem]">
-            Was fuehrt Sie in den Circle?
+            Was führt Sie zu uns?
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-8 text-[#d8d0c2]">
-            Fuer private Suchauftraege, ausgewaehlte Fahrzeugangebote oder diskrete Gelegenheiten waehlen Sie bitte die passende Anfrage.
+            Für private Suchaufträge, ausgewählte Fahrzeugangebote oder diskrete Gelegenheiten wählen Sie bitte die passende Anfrage.
           </p>
         </div>
       </section>
