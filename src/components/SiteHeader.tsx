@@ -1,11 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navigation } from "@/lib/site-structure";
+import { getLanguageFromPath, languageStorageKey, navigationByLanguage, switchLanguagePath } from "@/lib/language";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const language = getLanguageFromPath(pathname);
+  const navigation = navigationByLanguage[language];
+  const switchLabel = language === "de" ? "EN" : "DE";
+  const switchHref = switchLanguagePath(pathname, language === "de" ? "en" : "de");
+
+  function rememberSwitch() {
+    window.localStorage.setItem(languageStorageKey, language === "de" ? "en" : "de");
+    setOpen(false);
+  }
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 ${open ? "bg-[#080705]" : "bg-gradient-to-b from-black/84 to-transparent"}`}>
@@ -49,15 +60,24 @@ export function SiteHeader() {
           ))}
         </div>
 
-        <button
-          type="button"
-          className="border border-white/14 px-4 py-3 text-[0.58rem] uppercase tracking-[0.28em] text-pearl/78 lg:hidden"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-        >
-          Menu
-        </button>
+        <div className="flex items-center gap-3">
+          <Link
+            href={switchHref}
+            className="border border-white/14 px-3 py-3 text-[0.58rem] uppercase tracking-[0.22em] text-pearl/78 transition hover:text-[#d3b98d]"
+            onClick={rememberSwitch}
+          >
+            {switchLabel}
+          </Link>
+          <button
+            type="button"
+            className="border border-white/14 px-4 py-3 text-[0.58rem] uppercase tracking-[0.28em] text-pearl/78 lg:hidden"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+          >
+            {language === "de" ? "Menue" : "Menu"}
+          </button>
+        </div>
       </nav>
 
       {open ? (
@@ -72,7 +92,7 @@ export function SiteHeader() {
                 >
                   {item.label}
                 </Link>
-                {item.items ? (
+                  {item.items ? (
                   <div className="mt-4 grid gap-3 text-[0.62rem] uppercase tracking-[0.28em] text-[#d3b98d]/80">
                     {item.items.map((subItem) => (
                       <Link key={subItem.href} href={subItem.href} onClick={() => setOpen(false)}>

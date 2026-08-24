@@ -1,14 +1,28 @@
-import Link from "next/link";
+"use client";
 
-const legalLinks = [
-  { href: "/de/impressum", label: "Impressum" },
-  { href: "/de/datenschutz", label: "Datenschutz" },
-  { href: "/de/cookies", label: "Cookie-Einstellungen" },
-  { href: "/de/rechtliche-hinweise", label: "Rechtliche Hinweise" }
-];
+import Link from "next/link";
+import { getLanguageFromPath } from "@/lib/language";
+import { usePathname } from "next/navigation";
+
+const legalLinksByLanguage = {
+  de: [
+    { href: "/de/impressum", label: "Impressum" },
+    { href: "/de/datenschutz", label: "Datenschutz" },
+    { href: "/de/cookies", label: "Cookies" },
+    { href: "/de/rechtliche-hinweise", label: "Rechtliche Hinweise" }
+  ],
+  en: [
+    { href: "/en/imprint", label: "Imprint" },
+    { href: "/en/privacy", label: "Privacy Policy" },
+    { href: "/en/cookies", label: "Cookies" },
+    { href: "/en/legal-notice", label: "Legal Notice" }
+  ]
+};
 
 export function LegalInformation() {
   const year = new Date().getFullYear();
+  const language = getLanguageFromPath(usePathname());
+  const legalLinks = legalLinksByLanguage[language];
 
   return (
     <div className="border-t border-white/10 pt-8">
@@ -27,7 +41,7 @@ export function LegalInformation() {
         ))}
       </nav>
       <p className="mt-8 text-sm text-muted">
-        (c) {year} The Circle Twelve. All rights reserved.
+        (c) {year} The Circle Twelve. {language === "de" ? "Alle Rechte vorbehalten." : "All rights reserved."}
       </p>
     </div>
   );

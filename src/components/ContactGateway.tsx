@@ -24,12 +24,34 @@ const enquiryTypes = [
   }
 ];
 
-export function ContactGateway() {
-  const [active, setActive] = useState(enquiryTypes[0]);
+const enquiryTypesDe = [
+  {
+    id: "search",
+    title: "Ich suche ein Fahrzeug",
+    button: "Suche starten",
+    subject: "Private Suchanfrage"
+  },
+  {
+    id: "sell",
+    title: "Ich moechte ein Fahrzeug anbieten",
+    button: "Fahrzeug vorstellen",
+    subject: "Fahrzeugangebot"
+  },
+  {
+    id: "opportunity",
+    title: "Ich habe eine private Gelegenheit",
+    button: "The Circle kontaktieren",
+    subject: "Private Gelegenheit"
+  }
+];
+
+export function ContactGateway({ language = "en" }: { language?: "en" | "de" }) {
+  const items = language === "de" ? enquiryTypesDe : enquiryTypes;
+  const [active, setActive] = useState(items[0]);
 
   return (
     <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
-      {enquiryTypes.map((item) => (
+      {items.map((item) => (
         <div key={item.id} className="bg-[#100d09] p-6 sm:p-8">
           <h3 className="font-serif text-4xl leading-none">{item.title}</h3>
           <button
@@ -48,7 +70,7 @@ export function ContactGateway() {
           {active.subject}
         </p>
         <h3 className="mt-4 font-serif text-4xl leading-none sm:text-5xl">
-          Write to The Circle Twelve directly.
+          {language === "de" ? "Schreiben Sie The Circle Twelve direkt." : "Write to The Circle Twelve directly."}
         </h3>
         <div className="mt-6 flex flex-wrap gap-x-7 gap-y-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#21180f]">
           <a href={`mailto:${contactEmail}?subject=${encodeURIComponent(active.subject)}`} className="transition hover:text-[#5f4728]">

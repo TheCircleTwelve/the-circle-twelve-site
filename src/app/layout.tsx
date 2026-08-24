@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Alegreya_Sans, Cormorant_Garamond } from "next/font/google";
+import { LanguageChoice } from "@/components/LanguageChoice";
 import "./globals.css";
 
 const alegreya = Alegreya_Sans({
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       en: "/",
-      "de-DE": "/de/impressum"
+      "de-DE": "/de"
     }
   },
   openGraph: {
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html lang="en" translate="no" className={`${alegreya.variable} ${cormorant.variable} notranslate`}>
       <body translate="no" className="notranslate">
         {children}
+        <LanguageChoice />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
