@@ -21,16 +21,16 @@ export default function GermanAutomotivePage() {
         <img src="/images/auto/blackporsche.jpg.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-58" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,7,5,0.98)_0%,rgba(8,7,5,0.76)_50%,rgba(8,7,5,0.38)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#080705] to-transparent" />
-        <div className="relative mx-auto flex min-h-[82svh] max-w-[96rem] flex-col justify-end px-5 pb-14 pt-32 sm:px-8 lg:px-12 lg:pb-20">
-          <p className="mb-7 text-[0.62rem] uppercase tracking-[0.5em] text-[#d3b98d]">Fahrzeuge</p>
-          <h1 className="max-w-4xl font-serif text-[2.85rem] leading-[0.92] sm:text-[4.9rem] lg:text-[5.9rem]">
+        <div className="relative mx-auto flex min-h-[82svh] max-w-[96rem] flex-col justify-end px-4 pb-11 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12 lg:pb-20">
+          <p className="mb-5 text-[0.58rem] uppercase tracking-[0.34em] text-[#d3b98d] sm:mb-7 sm:text-[0.62rem] sm:tracking-[0.5em]">Fahrzeuge</p>
+          <h1 className="max-w-4xl font-serif text-[2.38rem] leading-[0.95] sm:text-[4.9rem] lg:text-[5.9rem]">
             Außergewöhnliche Fahrzeuge, diskret begleitet.
           </h1>
-          <p className="mt-8 max-w-3xl text-lg leading-8 text-[#d8d0c2] sm:text-xl sm:leading-9">
+          <p className="mt-6 max-w-3xl text-base leading-7 text-[#d8d0c2] sm:mt-8 sm:text-xl sm:leading-9">
             Wir beschaffen, platzieren und vermitteln ausgewählte Automobile über direkte Beziehungen zu Eigentümerinnen und Eigentümern, Sammlern, Händlern und vertrauten Partnern.
           </p>
-          <div className="mt-8 max-w-3xl border-l border-[#d3b98d]/45 pl-5 text-base leading-8 text-[#d8d0c2] sm:text-lg">
-            <p className="font-serif text-2xl leading-tight text-pearl sm:text-3xl">
+          <div className="mt-6 max-w-3xl border-l border-[#d3b98d]/45 pl-4 text-[0.98rem] leading-7 text-[#d8d0c2] sm:mt-8 sm:pl-5 sm:text-lg sm:leading-8">
+            <p className="font-serif text-[1.55rem] leading-tight text-pearl sm:text-3xl">
               Außergewöhnliche Fahrzeuge stehen im Mittelpunkt unserer Arbeit.
             </p>
             <p className="mt-5">
@@ -46,41 +46,41 @@ export default function GermanAutomotivePage() {
         </div>
       </section>
 
-      <section id="private-sourcing" className="mx-auto max-w-[96rem] scroll-mt-28 px-5 py-10 sm:px-8 lg:px-12 lg:py-16">
-        <div className="grid gap-8 bg-[#f0e7d6] p-6 text-[#16110b] shadow-[0_28px_90px_rgba(0,0,0,0.26)] sm:p-9 lg:grid-cols-[1fr_auto] lg:items-end lg:p-12">
+      <section id="private-sourcing" className="mx-auto max-w-[96rem] scroll-mt-28 px-4 py-7 sm:px-8 sm:py-10 lg:px-12 lg:py-16">
+        <div className="grid gap-5 border-y border-[#d3b98d]/28 bg-[#f0e7d6] px-4 py-6 text-[#16110b] shadow-[0_18px_52px_rgba(0,0,0,0.18)] sm:gap-8 sm:p-9 lg:grid-cols-[1fr_auto] lg:items-end lg:p-12">
           <div>
-            <p className="text-[0.62rem] font-semibold uppercase tracking-[0.4em] text-[#5f4728]">Private Suche</p>
-            <h2 className="mt-5 font-serif text-4xl leading-none sm:text-6xl">
+            <p className="text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[#5f4728] sm:text-[0.62rem] sm:tracking-[0.4em]">Private Suche</p>
+            <h2 className="mt-4 font-serif text-[2.1rem] leading-none sm:mt-5 sm:text-6xl">
               Suchen Sie ein bestimmtes Fahrzeug?
             </h2>
-            <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[#21180f]">
+            <p className="mt-4 max-w-3xl text-base font-medium leading-7 text-[#21180f] sm:mt-6 sm:text-lg sm:leading-8">
               Unser Netzwerk reicht über öffentlich angebotene Fahrzeuge hinaus. Konkrete Suchaufträge behandeln wir individuell, diskret und mit klarem Blick auf Timing und Kontext.
             </p>
           </div>
-          <Link href="/de/contact" className="inline-flex w-fit items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[#5f4728] transition hover:text-[#16110b]">
+          <Link href="/de/contact" className="inline-flex w-fit items-center gap-4 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#5f4728] transition hover:text-[#16110b] sm:text-[0.7rem] sm:tracking-[0.28em]">
             Private Suche starten
             <span className="h-px w-12 bg-current" />
           </Link>
         </div>
       </section>
 
-      <section id="available" className="mx-auto grid max-w-[96rem] scroll-mt-28 gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[0.55fr_1.45fr] lg:px-12 lg:py-20">
+      <section id="available" className="mx-auto grid max-w-[96rem] scroll-mt-28 gap-6 px-4 py-10 sm:gap-8 sm:px-8 sm:py-14 lg:grid-cols-[0.55fr_1.45fr] lg:px-12 lg:py-20">
         <div>
-          <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#d3b98d]">Verfügbar</p>
-          <h2 className="mt-6 font-serif text-5xl leading-[0.9] sm:text-7xl">Ausgewählte Gelegenheiten.</h2>
-          <p className="mt-7 text-lg leading-8 text-[#d8d0c2]">
+          <p className="text-[0.58rem] uppercase tracking-[0.32em] text-[#d3b98d] sm:text-[0.62rem] sm:tracking-[0.48em]">Verfügbar</p>
+          <h2 className="mt-4 font-serif text-[2.45rem] leading-[0.94] sm:mt-6 sm:text-7xl">Ausgewählte Gelegenheiten.</h2>
+          <p className="mt-5 text-base leading-7 text-[#d8d0c2] sm:mt-7 sm:text-lg sm:leading-8">
             Ein diskreter Überblick über Fahrzeuge, die über unser privates Netzwerk verfügbar sein können.
           </p>
         </div>
         <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
           {availableCars.map((car, index) => (
-            <article key={`${car.maker}-${car.model}`} className="grid gap-5 bg-[#100d09] p-6 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-8">
-              <p className="font-serif text-4xl leading-none text-[#d3b98d]/72">{String(index + 1).padStart(2, "0")}</p>
+            <article key={`${car.maker}-${car.model}`} className="grid gap-4 bg-[#100d09] p-5 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-8">
+              <p className="font-serif text-3xl leading-none text-[#d3b98d]/72 sm:text-4xl">{String(index + 1).padStart(2, "0")}</p>
               <div>
-                <p className="text-[0.58rem] uppercase tracking-[0.28em] text-[#d3b98d]/82">{car.maker}</p>
-                <h3 className="mt-2 font-serif text-4xl leading-none sm:text-6xl">{car.model}</h3>
+                <p className="text-[0.55rem] uppercase tracking-[0.22em] text-[#d3b98d]/82 sm:text-[0.58rem] sm:tracking-[0.28em]">{car.maker}</p>
+                <h3 className="mt-2 font-serif text-[2.25rem] leading-none sm:text-6xl">{car.model}</h3>
               </div>
-              <div className="text-sm uppercase tracking-[0.2em] text-[#d8d0c2] sm:text-right">
+              <div className="text-xs uppercase tracking-[0.16em] text-[#d8d0c2] sm:text-right sm:text-sm sm:tracking-[0.2em]">
                 <p>{car.label === "Selected access" ? "Ausgewählter Zugang" : "Private Vorstellung"}</p>
                 <p className="mt-2 text-[#d3b98d]/78">Kontakt für weitere Informationen</p>
               </div>
@@ -89,21 +89,21 @@ export default function GermanAutomotivePage() {
         </div>
       </section>
 
-      <section id="wanted" className="mx-auto grid max-w-[96rem] scroll-mt-28 gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[0.55fr_1.45fr] lg:px-12 lg:py-20">
+      <section id="wanted" className="mx-auto grid max-w-[96rem] scroll-mt-28 gap-6 px-4 py-10 sm:gap-8 sm:px-8 sm:py-14 lg:grid-cols-[0.55fr_1.45fr] lg:px-12 lg:py-20">
         <div>
-          <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#d3b98d]">Gesucht</p>
-          <h2 className="mt-6 font-serif text-5xl leading-[0.9] sm:text-7xl">Aktuelle Suchmandate.</h2>
+          <p className="text-[0.58rem] uppercase tracking-[0.32em] text-[#d3b98d] sm:text-[0.62rem] sm:tracking-[0.48em]">Gesucht</p>
+          <h2 className="mt-4 font-serif text-[2.45rem] leading-[0.94] sm:mt-6 sm:text-7xl">Aktuelle Suchmandate.</h2>
         </div>
         <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
           {wantedCars.map(([model]) => (
-            <div key={model} className="grid gap-4 bg-[#f0e7d6] p-6 text-[#16110b] sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
+            <div key={model} className="grid gap-4 border-y border-[#d3b98d]/24 bg-[#f0e7d6] px-5 py-5 text-[#16110b] sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
               <div>
-                <h3 className="font-serif text-4xl leading-none">{model}</h3>
-                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#5f4728]">
+                <h3 className="font-serif text-[2.15rem] leading-none sm:text-4xl">{model}</h3>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#5f4728] sm:text-sm sm:tracking-[0.22em]">
                   Qualifiziertes Suchmandat / Diskrete Kontaktaufnahme
                 </p>
               </div>
-              <Link href="/de/contact" className="inline-flex w-fit items-center justify-center border border-[#5f4728] px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#21180f] transition hover:bg-[#21180f] hover:text-[#f0e7d6] sm:justify-self-end sm:text-sm">
+              <Link href="/de/contact" className="inline-flex w-full items-center justify-center border border-[#5f4728] px-4 py-3.5 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[#21180f] transition hover:bg-[#21180f] hover:text-[#f0e7d6] sm:w-fit sm:justify-self-end sm:px-5 sm:py-3 sm:text-sm sm:tracking-[0.22em]">
                 Ich habe dieses Fahrzeug
               </Link>
             </div>
@@ -111,17 +111,17 @@ export default function GermanAutomotivePage() {
         </div>
       </section>
 
-      <section id="sold-sourced" className="mx-auto max-w-[96rem] scroll-mt-28 px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
-        <div className="border border-white/10 bg-[#100d09] p-6 sm:p-9 lg:p-12">
-          <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#d3b98d]">Vermittelt & Beschafft</p>
-          <h2 className="mt-6 font-serif text-5xl leading-[0.9] sm:text-7xl">Abgeschlossene Mandate.</h2>
-          <p className="mt-7 max-w-4xl text-lg leading-8 text-[#d8d0c2]">
+      <section id="sold-sourced" className="mx-auto max-w-[96rem] scroll-mt-28 px-4 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
+        <div className="border border-white/10 bg-[#100d09] p-5 sm:p-9 lg:p-12">
+          <p className="text-[0.58rem] uppercase tracking-[0.32em] text-[#d3b98d] sm:text-[0.62rem] sm:tracking-[0.48em]">Vermittelt & Beschafft</p>
+          <h2 className="mt-4 font-serif text-[2.45rem] leading-[0.94] sm:mt-6 sm:text-7xl">Abgeschlossene Mandate.</h2>
+          <p className="mt-5 max-w-4xl text-base leading-7 text-[#d8d0c2] sm:mt-7 sm:text-lg sm:leading-8">
             Dieser Bereich ist echten abgeschlossenen Mandaten vorbehalten. Er bleibt bewusst selektiv und wächst nur mit relevanten Transaktionen.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[96rem] px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
+      <section className="mx-auto max-w-[96rem] px-4 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
         <ContactGateway language="de" />
       </section>
 

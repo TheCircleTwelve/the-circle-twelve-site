@@ -77,15 +77,15 @@ export default function AboutUsPage() {
         <img src="/images/logo/logocafe.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-72" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,7,5,0.96)_0%,rgba(8,7,5,0.70)_52%,rgba(8,7,5,0.18)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#080705] to-transparent" />
-        <div className="relative mx-auto flex min-h-[68svh] max-w-[96rem] flex-col justify-end px-5 pb-14 pt-32 sm:px-8 lg:px-12">
+        <div className="relative mx-auto flex min-h-[68svh] max-w-[96rem] flex-col justify-end px-4 pb-11 pt-28 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12">
           <p className="mb-6 text-[0.62rem] uppercase tracking-[0.5em] text-[#d3b98d]">About Us</p>
-          <h1 className="max-w-4xl font-serif text-[2.85rem] leading-[0.94] sm:text-[4.8rem] lg:text-[5.8rem]">
+          <h1 className="max-w-4xl font-serif text-[2.42rem] leading-[0.96] sm:text-[4.8rem] lg:text-[5.8rem]">
             The Circle Twelve.
           </h1>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[86rem] px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
+      <section className="mx-auto max-w-[86rem] px-4 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
         <div className="grid gap-10">
           {chapters.map((chapter) => (
             <article key={chapter.number} id={chapter.title === "Who We Are" ? "who-we-are" : chapter.title === "Our Approach" ? "our-approach" : undefined} className="scroll-mt-28 border-t border-white/12 pt-10">
@@ -96,7 +96,7 @@ export default function AboutUsPage() {
                   </p>
                 </div>
                 <div>
-                  <h2 className="max-w-4xl font-serif text-3xl leading-[1.12] sm:text-4xl lg:text-[2.7rem]">{chapter.lead}</h2>
+                  <h2 className="max-w-4xl font-serif text-[1.72rem] leading-[1.14] sm:text-4xl lg:text-[2.7rem]">{chapter.lead}</h2>
                   <div className="mt-8 grid gap-5 text-lg leading-9 text-[#d8d0c2]">
                     {chapter.paragraphs.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
@@ -105,8 +105,8 @@ export default function AboutUsPage() {
                   {chapter.people ? (
                     <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
                       {chapter.people.map((person) => (
-                        <div key={person.name} className="bg-[#f0e7d6] p-6 text-[#16110b] sm:p-8">
-                          <h3 className="font-serif text-4xl leading-none">{person.name}</h3>
+                        <div key={person.name} className="border-y border-[#d3b98d]/24 bg-[#f0e7d6] px-5 py-5 text-[#16110b] sm:p-8">
+                          <h3 className="font-serif text-[2.1rem] leading-none sm:text-4xl">{person.name}</h3>
                           <p className="mt-3 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-[#5f4728]">{person.role}</p>
                           <p className="mt-6 text-base font-medium leading-7 text-[#21180f]">{person.text}</p>
                         </div>
