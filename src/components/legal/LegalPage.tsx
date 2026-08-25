@@ -18,9 +18,9 @@ export function LegalPage({
         <img
           src="/images/logo/logostahl.jpg.jpg"
           alt=""
-          className="absolute inset-0 -z-20 h-full min-h-full w-full object-cover object-[50%_22%] opacity-16 sm:object-[50%_24%] lg:object-[46%_24%]"
+          className="absolute inset-0 -z-20 h-full min-h-full w-full object-cover object-[50%_22%] opacity-30 sm:object-[50%_24%] sm:opacity-28 lg:object-[46%_24%]"
         />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.76)_0%,rgba(8,7,5,0.82)_18rem,rgba(8,7,5,0.94)_42rem,#080705_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(8,7,5,0.48)_0%,rgba(8,7,5,0.58)_20rem,rgba(8,7,5,0.72)_46rem,rgba(8,7,5,0.88)_100%)]" />
         <div className="relative mx-auto max-w-[92rem]">
         <header className="flex items-center justify-between gap-4 border-b border-white/10 pb-5 sm:gap-6 sm:pb-6">
           <Link href={homeHref} className="font-serif text-2xl tracking-wide transition hover:text-[#d3b98d] sm:text-3xl">
