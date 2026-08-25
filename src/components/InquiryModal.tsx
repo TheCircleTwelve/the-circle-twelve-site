@@ -30,6 +30,7 @@ const copy = {
     contactHint: "Please add email or phone so we can respond.",
     attachment: "Attachment",
     attachmentHint: "PDF, JPG, PNG or WebP. Up to 3 files, max. 4 MB each.",
+    attachmentLimitBadge: "Max. 3 files",
     attachmentLimit: "Please select no more than 3 files.",
     another: "Send another inquiry"
   },
@@ -48,6 +49,7 @@ const copy = {
     contactHint: "Bitte E-Mail oder Telefon angeben, damit wir antworten können.",
     attachment: "Anhang",
     attachmentHint: "PDF, JPG, PNG oder WebP. Bis zu 3 Dateien, max. 4 MB pro Datei.",
+    attachmentLimitBadge: "Max. 3 Dateien",
     attachmentLimit: "Bitte maximal 3 Dateien auswählen.",
     another: "Weitere Anfrage senden"
   }
@@ -179,8 +181,13 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
             />
           </label>
 
-          <label className="grid gap-2 text-[0.58rem] uppercase tracking-[0.22em] text-[#d3b98d] sm:col-span-2">
-            {labels.attachment}
+          <label className="grid gap-3 border border-[#d3b98d]/35 bg-[#f0e7d6]/10 p-4 text-[0.58rem] uppercase tracking-[0.22em] text-[#d3b98d] sm:col-span-2">
+            <span className="flex flex-wrap items-center justify-between gap-3">
+              <span>{labels.attachment}</span>
+              <span className="bg-[#f0e7d6] px-3 py-2 font-semibold tracking-[0.18em] text-[#16110b]">
+                {labels.attachmentLimitBadge}
+              </span>
+            </span>
             <input
               className="field file:mr-4 file:border-0 file:bg-[#f0e7d6] file:px-4 file:py-2 file:text-[0.58rem] file:font-semibold file:uppercase file:tracking-[0.18em] file:text-[#16110b]"
               type="file"
@@ -202,7 +209,12 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
                 setAttachments(selectedFiles);
               }}
             />
-            <span className="normal-case tracking-normal text-[#d8d0c2]">{labels.attachmentHint}</span>
+            <span className="text-sm font-semibold normal-case tracking-normal text-[#f0e7d6]">{labels.attachmentHint}</span>
+            {attachments.length ? (
+              <span className="normal-case tracking-normal text-[#d8d0c2]">
+                {attachments.length} von 3 Dateien ausgewählt.
+              </span>
+            ) : null}
           </label>
 
           {status === "error" ? <p className="text-sm text-[#d3b98d] sm:col-span-2">{error}</p> : null}

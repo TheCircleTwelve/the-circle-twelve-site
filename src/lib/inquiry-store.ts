@@ -1,4 +1,5 @@
 import { sanitizeInquiryInput } from "@/lib/inquiry-validation.mjs";
+import { buildDeleteInquiryCommands } from "@/lib/inquiry-delete.mjs";
 
 export type InquiryStatus = "new" | "read" | "done";
 
@@ -183,4 +184,14 @@ export async function updateInquiryStatus(id: string, status: InquiryStatus) {
   await redisCommand<number>(["HSET", `${recordPrefix}${id}`, "status", status]);
   const values = await redisCommand<unknown[]>(["HGETALL", `${recordPrefix}${id}`]);
   return toRecord(values);
+}
+
+export async function deleteInquiry(id: string) {
+  const commands = buildDeleteInquiryCommands(id);
+
+  for (const command of commands) {
+    await redisCommand<number>(command);
+  }
+
+  return { ok: true as const };
 }

@@ -10,6 +10,18 @@ const statusLabels: Record<InquiryStatus, string> = {
   done: "Erledigt"
 };
 
+function TrashIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M4 7h16" />
+      <path d="M10 11v6" />
+      <path d="M14 11v6" />
+      <path d="M6 7l1 14h10l1-14" />
+      <path d="M9 7V4h6v3" />
+    </svg>
+  );
+}
+
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("de-DE", {
     dateStyle: "medium",
@@ -158,6 +170,30 @@ export function InboxClient() {
     await loadInbox();
   }
 
+  async function deleteMessage(id: string, name: string) {
+    const confirmed = window.confirm(`Anfrage von ${name || "diesem Kontakt"} wirklich löschen?`);
+
+    if (!confirmed) {
+      return;
+    }
+
+    const response = await fetch("/api/inbox", {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${savedPassword}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id })
+    });
+
+    if (!response.ok) {
+      setError("Anfrage konnte nicht gelöscht werden.");
+      return;
+    }
+
+    setInquiries((current) => current.filter((inquiry) => inquiry.id !== id));
+  }
+
   async function downloadAttachment(url: string, name: string) {
     const fileWindow = window.open("", "_blank", "noopener,noreferrer");
 
@@ -273,6 +309,15 @@ export function InboxClient() {
                           {statusLabels[status]}
                         </button>
                       ))}
+                      <button
+                        type="button"
+                        onClick={() => deleteMessage(inquiry.id, inquiry.name)}
+                        className="inline-flex items-center gap-2 border border-[#d3b98d]/45 px-3 py-2 text-[0.58rem] uppercase tracking-[0.18em] text-[#d3b98d] transition hover:bg-[#d3b98d] hover:text-[#16110b]"
+                        aria-label={`Anfrage von ${inquiry.name} löschen`}
+                      >
+                        <TrashIcon />
+                        Papierkorb
+                      </button>
                     </div>
                   </div>
 
