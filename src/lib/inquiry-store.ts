@@ -1,7 +1,7 @@
 import { sanitizeInquiryInput } from "@/lib/inquiry-validation.mjs";
 import { buildDeleteInquiryCommands } from "@/lib/inquiry-delete.mjs";
 
-export type InquiryStatus = "new" | "read" | "done";
+export type InquiryStatus = "new" | "read" | "done" | "trash";
 
 export type InquiryAttachment = {
   url: string;
@@ -22,6 +22,7 @@ export type InquiryRecord = {
   message: string;
   vehicle: string;
   attachments: InquiryAttachment[];
+  deletedAt: string;
 };
 
 type SanitizedInquiry = Pick<
@@ -104,7 +105,8 @@ function toRecord(values: unknown[]): InquiryRecord | null {
     phone: data.phone || "",
     message: data.message || "",
     vehicle: data.vehicle || "",
-    attachments
+    attachments,
+    deletedAt: data.deletedAt || ""
   };
 }
 
@@ -130,6 +132,7 @@ export async function createInquiry(input: unknown) {
     id: `inq_${now}_${Math.random().toString(36).slice(2, 10)}`,
     createdAt: new Date(now).toISOString(),
     status: "new",
+    deletedAt: "",
     ...value
   };
 
@@ -157,14 +160,16 @@ export async function createInquiry(input: unknown) {
     "vehicle",
     record.vehicle,
     "attachments",
-    JSON.stringify(record.attachments)
+    JSON.stringify(record.attachments),
+    "deletedAt",
+    record.deletedAt
   ]);
   await redisCommand<number>(["ZADD", indexKey, now, record.id]);
 
   return { ok: true as const, value: record };
 }
 
-export async function listInquiries() {
+export async function listInquiries(view: "active" | "trash" = "active") {
   const ids = await redisCommand<string[]>(["ZREVRANGE", indexKey, 0, 100]);
   const records = await Promise.all(
     ids.map(async (id) => {
@@ -173,11 +178,13 @@ export async function listInquiries() {
     })
   );
 
-  return records.filter((record): record is InquiryRecord => Boolean(record));
+  return records.filter((record): record is InquiryRecord =>
+    Boolean(record && (view === "trash" ? record.status === "trash" : record.status !== "trash"))
+  );
 }
 
 export async function updateInquiryStatus(id: string, status: InquiryStatus) {
-  if (!["new", "read", "done"].includes(status)) {
+  if (!["new", "read", "done", "trash"].includes(status)) {
     throw new Error("Invalid status.");
   }
 

@@ -18,7 +18,9 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
 
-  const inquiries = await listInquiries();
+  const { searchParams } = new URL(request.url);
+  const view = searchParams.get("view") === "trash" ? "trash" : "active";
+  const inquiries = await listInquiries(view);
   return NextResponse.json({ inquiries });
 }
 

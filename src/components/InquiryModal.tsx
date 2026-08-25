@@ -31,6 +31,8 @@ const copy = {
     attachment: "Attachment",
     attachmentHint: "PDF, JPG, PNG or WebP. Up to 3 files, max. 4 MB each.",
     attachmentLimitBadge: "Max. 3 files",
+    attachmentNoticeTitle: "Important: maximum 3 photos/files",
+    attachmentNoticeText: "Please select only the most relevant images or documents for your inquiry.",
     attachmentLimit: "Please select no more than 3 files.",
     another: "Send another inquiry"
   },
@@ -50,6 +52,8 @@ const copy = {
     attachment: "Anhang",
     attachmentHint: "PDF, JPG, PNG oder WebP. Bis zu 3 Dateien, max. 4 MB pro Datei.",
     attachmentLimitBadge: "Max. 3 Dateien",
+    attachmentNoticeTitle: "Wichtig: maximal 3 Fotos/Dateien",
+    attachmentNoticeText: "Bitte wählen Sie nur die wichtigsten Bilder oder Dokumente für Ihre Anfrage aus.",
     attachmentLimit: "Bitte maximal 3 Dateien auswählen.",
     another: "Weitere Anfrage senden"
   }
@@ -182,6 +186,10 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
           </label>
 
           <label className="grid gap-3 border border-[#d3b98d]/35 bg-[#f0e7d6]/10 p-4 text-[0.58rem] uppercase tracking-[0.22em] text-[#d3b98d] sm:col-span-2">
+            <span className="block border border-[#d3b98d]/45 bg-[#f0e7d6] p-4 text-[#16110b]">
+              <span className="block text-[0.68rem] font-semibold uppercase tracking-[0.2em]">{labels.attachmentNoticeTitle}</span>
+              <span className="mt-2 block text-sm font-medium normal-case leading-6 tracking-normal">{labels.attachmentNoticeText}</span>
+            </span>
             <span className="flex flex-wrap items-center justify-between gap-3">
               <span>{labels.attachment}</span>
               <span className="bg-[#f0e7d6] px-3 py-2 font-semibold tracking-[0.18em] text-[#16110b]">

@@ -1,1 +1,1 @@
-export function buildDeleteInquiryCommands(id: string): unknown[][];
+export function buildDeleteInquiryCommands(id: string, deletedAt?: string): unknown[][];

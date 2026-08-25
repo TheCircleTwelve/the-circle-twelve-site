@@ -7,7 +7,8 @@ import type { InquiryAttachment, InquiryRecord, InquiryStatus } from "@/lib/inqu
 const statusLabels: Record<InquiryStatus, string> = {
   new: "Neu",
   read: "Gelesen",
-  done: "Erledigt"
+  done: "Erledigt",
+  trash: "Papierkorb"
 };
 
 function TrashIcon() {
@@ -120,8 +121,9 @@ export function InboxClient() {
   const [inquiries, setInquiries] = useState<InquiryRecord[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [view, setView] = useState<"active" | "trash">("active");
 
-  async function loadInbox(nextPassword = savedPassword) {
+  async function loadInbox(nextPassword = savedPassword, nextView = view) {
     if (!nextPassword) {
       return;
     }
@@ -129,7 +131,7 @@ export function InboxClient() {
     setLoading(true);
     setError("");
 
-    const response = await fetch("/api/inbox", {
+    const response = await fetch(`/api/inbox${nextView === "trash" ? "?view=trash" : ""}`, {
       headers: { Authorization: `Bearer ${nextPassword}` },
       cache: "no-store"
     });
@@ -171,7 +173,7 @@ export function InboxClient() {
   }
 
   async function deleteMessage(id: string, name: string) {
-    const confirmed = window.confirm(`Anfrage von ${name || "diesem Kontakt"} wirklich löschen?`);
+    const confirmed = window.confirm(`Anfrage von ${name || "diesem Kontakt"} in den Papierkorb verschieben?`);
 
     if (!confirmed) {
       return;
@@ -192,6 +194,11 @@ export function InboxClient() {
     }
 
     setInquiries((current) => current.filter((inquiry) => inquiry.id !== id));
+  }
+
+  async function switchView(nextView: "active" | "trash") {
+    setView(nextView);
+    await loadInbox(savedPassword, nextView);
   }
 
   async function downloadAttachment(url: string, name: string) {
@@ -237,7 +244,7 @@ export function InboxClient() {
     if (stored) {
       setSavedPassword(stored);
       setPassword(stored);
-      void loadInbox(stored);
+      void loadInbox(stored, "active");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -269,9 +276,30 @@ export function InboxClient() {
         ) : (
           <section className="mt-8">
             <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm uppercase tracking-[0.22em] text-[#d8d0c2]">
-                {loading ? "Lädt..." : `${inquiries.length} Nachrichten`}
-              </p>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => switchView("active")}
+                  className={`border px-4 py-3 text-[0.62rem] uppercase tracking-[0.22em] ${
+                    view === "active" ? "border-[#d3b98d] bg-[#d3b98d] text-[#16110b]" : "border-white/14 text-[#d8d0c2]"
+                  }`}
+                >
+                  Inbox
+                </button>
+                <button
+                  type="button"
+                  onClick={() => switchView("trash")}
+                  className={`inline-flex items-center gap-2 border px-4 py-3 text-[0.62rem] uppercase tracking-[0.22em] ${
+                    view === "trash" ? "border-[#d3b98d] bg-[#d3b98d] text-[#16110b]" : "border-white/14 text-[#d8d0c2]"
+                  }`}
+                >
+                  <TrashIcon />
+                  Papierkorb
+                </button>
+                <p className="self-center text-sm uppercase tracking-[0.22em] text-[#d8d0c2]">
+                  {loading ? "Lädt..." : `${inquiries.length} Nachrichten`}
+                </p>
+              </div>
               <button
                 type="button"
                 onClick={() => loadInbox()}
@@ -295,29 +323,38 @@ export function InboxClient() {
                       <p className="mt-3 text-sm leading-7 text-[#d8d0c2]">{formatDate(inquiry.createdAt)}</p>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {(["new", "read", "done"] as InquiryStatus[]).map((status) => (
-                        <button
-                          key={status}
-                          type="button"
-                          onClick={() => updateStatus(inquiry.id, status)}
-                          className={`border px-3 py-2 text-[0.58rem] uppercase tracking-[0.18em] ${
-                            inquiry.status === status
-                              ? "border-[#d3b98d] bg-[#d3b98d] text-[#16110b]"
-                              : "border-white/14 text-[#d8d0c2]"
-                          }`}
-                        >
-                          {statusLabels[status]}
-                        </button>
-                      ))}
-                      <button
-                        type="button"
-                        onClick={() => deleteMessage(inquiry.id, inquiry.name)}
-                        className="inline-flex items-center gap-2 border border-[#d3b98d]/45 px-3 py-2 text-[0.58rem] uppercase tracking-[0.18em] text-[#d3b98d] transition hover:bg-[#d3b98d] hover:text-[#16110b]"
-                        aria-label={`Anfrage von ${inquiry.name} löschen`}
-                      >
-                        <TrashIcon />
-                        Papierkorb
-                      </button>
+                      {view === "active" ? (
+                        <>
+                          {(["new", "read", "done"] as InquiryStatus[]).map((status) => (
+                            <button
+                              key={status}
+                              type="button"
+                              onClick={() => updateStatus(inquiry.id, status)}
+                              className={`border px-3 py-2 text-[0.58rem] uppercase tracking-[0.18em] ${
+                                inquiry.status === status
+                                  ? "border-[#d3b98d] bg-[#d3b98d] text-[#16110b]"
+                                  : "border-white/14 text-[#d8d0c2]"
+                              }`}
+                            >
+                              {statusLabels[status]}
+                            </button>
+                          ))}
+                          <button
+                            type="button"
+                            onClick={() => deleteMessage(inquiry.id, inquiry.name)}
+                            className="inline-flex items-center gap-2 border border-[#d3b98d]/45 px-3 py-2 text-[0.58rem] uppercase tracking-[0.18em] text-[#d3b98d] transition hover:bg-[#d3b98d] hover:text-[#16110b]"
+                            aria-label={`Anfrage von ${inquiry.name} in den Papierkorb verschieben`}
+                          >
+                            <TrashIcon />
+                            Papierkorb
+                          </button>
+                        </>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 border border-white/14 px-3 py-2 text-[0.58rem] uppercase tracking-[0.18em] text-[#d8d0c2]">
+                          <TrashIcon />
+                          Im Papierkorb
+                        </span>
+                      )}
                     </div>
                   </div>
 
