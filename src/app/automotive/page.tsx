@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactGateway } from "@/components/ContactGateway";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { WantedCarInquiryButton } from "@/components/WantedCarInquiryButton";
 import { availableCars, wantedCars } from "@/lib/site-structure";
 
 export const metadata: Metadata = {
@@ -103,9 +104,7 @@ export default function AutomotivePage() {
                   {spec} / {note}
                 </p>
               </div>
-              <Link href="/contact" className="inline-flex w-full items-center justify-center border border-[#5f4728] px-4 py-3.5 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[#21180f] transition hover:bg-[#21180f] hover:text-[#f0e7d6] sm:w-fit sm:justify-self-end sm:px-5 sm:py-3 sm:text-sm sm:tracking-[0.22em]">
-                I have this car
-              </Link>
+              <WantedCarInquiryButton model={model} />
             </div>
           ))}
         </div>
@@ -121,7 +120,7 @@ export default function AutomotivePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[96rem] px-4 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
+      <section id="contact" className="mx-auto max-w-[96rem] px-4 py-10 sm:px-8 sm:py-14 lg:px-12 lg:py-20">
         <ContactGateway />
       </section>
 

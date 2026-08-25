@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { InquiryModal } from "@/components/InquiryModal";
 import { contactEmail, instagramUrl } from "@/lib/site-structure";
 
 const enquiryTypes = [
@@ -48,6 +49,7 @@ const enquiryTypesDe = [
 export function ContactGateway({ language = "en" }: { language?: "en" | "de" }) {
   const items = language === "de" ? enquiryTypesDe : enquiryTypes;
   const [active, setActive] = useState(items[0]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
@@ -57,7 +59,10 @@ export function ContactGateway({ language = "en" }: { language?: "en" | "de" }) 
           <button
             type="button"
             className="mt-5 inline-flex items-center gap-4 text-[0.6rem] uppercase tracking-[0.22em] text-[#d3b98d] transition hover:text-pearl sm:mt-7 sm:text-[0.62rem] sm:tracking-[0.28em]"
-            onClick={() => setActive(item)}
+            onClick={() => {
+              setActive(item);
+              setModalOpen(true);
+            }}
           >
             {item.button}
             <span className="h-px w-10 bg-current" />
@@ -81,6 +86,13 @@ export function ContactGateway({ language = "en" }: { language?: "en" | "de" }) 
           </a>
         </div>
       </div>
+      <InquiryModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        language={language}
+        type={active.id as "search" | "sell" | "opportunity"}
+        subject={active.subject}
+      />
     </div>
   );
 }

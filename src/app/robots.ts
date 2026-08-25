@@ -4,7 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/"
+      allow: "/",
+      disallow: "/inbox"
     },
     sitemap: "https://www.thecircletwelve.com/sitemap.xml"
   };
