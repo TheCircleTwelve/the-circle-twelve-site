@@ -159,23 +159,41 @@ export function InboxClient() {
   }
 
   async function downloadAttachment(url: string, name: string) {
+    const fileWindow = window.open("", "_blank", "noopener,noreferrer");
+
+    if (fileWindow) {
+      fileWindow.document.title = name || "Attachment";
+      fileWindow.document.body.style.margin = "24px";
+      fileWindow.document.body.style.fontFamily = "serif";
+      fileWindow.document.body.textContent = "Datei wird geöffnet...";
+    }
+
     const response = await fetch(`/api/inbox/file?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`, {
       headers: { Authorization: `Bearer ${savedPassword}` },
       cache: "no-store"
     });
 
     if (!response.ok) {
+      fileWindow?.close();
       setError("Datei konnte nicht geöffnet werden.");
       return;
     }
 
     const file = await response.blob();
     const objectUrl = window.URL.createObjectURL(file);
-    const anchor = document.createElement("a");
-    anchor.href = objectUrl;
-    anchor.download = name || "attachment";
-    anchor.click();
-    window.URL.revokeObjectURL(objectUrl);
+
+    if (fileWindow) {
+      fileWindow.location.href = objectUrl;
+    } else {
+      const anchor = document.createElement("a");
+      anchor.href = objectUrl;
+      anchor.download = name || "attachment";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+    }
+
+    window.setTimeout(() => window.URL.revokeObjectURL(objectUrl), 60000);
   }
 
   useEffect(() => {
