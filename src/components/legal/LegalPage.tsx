@@ -13,14 +13,14 @@ export function LegalPage({
   const homeHref = language === "de" ? "/de" : "/";
 
   return (
-    <main className="min-h-screen overflow-x-clip bg-[#080705] text-pearl">
-      <section className="relative isolate overflow-hidden px-4 py-6 sm:px-8 sm:py-8 lg:px-12">
+    <main className="min-h-screen overflow-x-clip bg-[#b9b3a9] text-pearl">
+      <section className="relative isolate overflow-hidden bg-[#b9b3a9] px-4 py-6 sm:px-8 sm:py-8 lg:px-12">
         <img
           src="/images/logo/logostahl.jpg.jpg"
           alt=""
-          className="absolute inset-0 -z-20 h-full min-h-full w-full object-cover object-[50%_22%] opacity-30 sm:object-[50%_24%] sm:opacity-28 lg:object-[46%_24%]"
+          className="absolute inset-0 -z-20 h-full min-h-full w-full object-cover object-[50%_22%] opacity-62 sm:object-[50%_24%] sm:opacity-58 lg:object-[46%_24%]"
         />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(8,7,5,0.48)_0%,rgba(8,7,5,0.58)_20rem,rgba(8,7,5,0.72)_46rem,rgba(8,7,5,0.88)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(8,7,5,0.30)_0%,rgba(185,179,169,0.12)_18rem,rgba(185,179,169,0.10)_48rem,rgba(8,7,5,0.32)_100%)]" />
         <div className="relative mx-auto max-w-[92rem]">
         <header className="flex items-center justify-between gap-4 border-b border-white/10 pb-5 sm:gap-6 sm:pb-6">
           <Link href={homeHref} className="font-serif text-2xl tracking-wide transition hover:text-[#d3b98d] sm:text-3xl">
