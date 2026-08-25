@@ -14,13 +14,13 @@ export function LegalPage({
 
   return (
     <main className="min-h-screen overflow-x-clip bg-[#080705] text-pearl">
-      <section className="relative overflow-hidden px-4 py-6 sm:px-8 sm:py-8 lg:px-12">
+      <section className="relative isolate overflow-hidden px-4 py-6 sm:px-8 sm:py-8 lg:px-12">
         <img
           src="/images/logo/logostahl.jpg.jpg"
           alt=""
-          className="absolute inset-x-0 top-0 h-[48rem] w-full object-cover object-[50%_22%] opacity-16 sm:h-[58rem] sm:object-[50%_24%] lg:h-[72rem] lg:object-[46%_24%] xl:h-[78rem]"
+          className="absolute inset-0 -z-20 h-full min-h-full w-full object-cover object-[50%_22%] opacity-16 sm:object-[50%_24%] lg:object-[46%_24%]"
         />
-        <div className="absolute inset-x-0 top-0 h-[50rem] bg-gradient-to-b from-black/76 via-[#080705]/82 to-[#080705] sm:h-[60rem] lg:h-[74rem] xl:h-[80rem]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.76)_0%,rgba(8,7,5,0.82)_18rem,rgba(8,7,5,0.94)_42rem,#080705_100%)]" />
         <div className="relative mx-auto max-w-[92rem]">
         <header className="flex items-center justify-between gap-4 border-b border-white/10 pb-5 sm:gap-6 sm:pb-6">
           <Link href={homeHref} className="font-serif text-2xl tracking-wide transition hover:text-[#d3b98d] sm:text-3xl">
