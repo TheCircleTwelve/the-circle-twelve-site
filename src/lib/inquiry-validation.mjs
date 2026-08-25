@@ -16,7 +16,7 @@ function sanitizeAttachments(value) {
   }
 
   return value
-    .slice(0, 1)
+    .slice(0, 3)
     .map((attachment) => {
       const url = cleanText(attachment?.url, 800);
       const name = cleanText(attachment?.name, 180);

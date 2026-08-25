@@ -29,7 +29,8 @@ const copy = {
     close: "Close",
     contactHint: "Please add email or phone so we can respond.",
     attachment: "Attachment",
-    attachmentHint: "PDF, JPG, PNG or WebP. Max. 4 MB.",
+    attachmentHint: "PDF, JPG, PNG or WebP. Up to 3 files, max. 4 MB each.",
+    attachmentLimit: "Please select no more than 3 files.",
     another: "Send another inquiry"
   },
   de: {
@@ -46,7 +47,8 @@ const copy = {
     close: "Schließen",
     contactHint: "Bitte E-Mail oder Telefon angeben, damit wir antworten können.",
     attachment: "Anhang",
-    attachmentHint: "PDF, JPG, PNG oder WebP. Max. 4 MB.",
+    attachmentHint: "PDF, JPG, PNG oder WebP. Bis zu 3 Dateien, max. 4 MB pro Datei.",
+    attachmentLimit: "Bitte maximal 3 Dateien auswählen.",
     another: "Weitere Anfrage senden"
   }
 };
@@ -57,7 +59,7 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState(vehicle ? `${vehicle}: ` : "");
-  const [attachment, setAttachment] = useState<File | null>(null);
+  const [attachments, setAttachments] = useState<File[]>([]);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
@@ -70,7 +72,7 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
     setEmail("");
     setPhone("");
     setMessage(vehicle ? `${vehicle}: ` : "");
-    setAttachment(null);
+    setAttachments([]);
   }
 
   async function submitInquiry(event: FormEvent<HTMLFormElement>) {
@@ -87,9 +89,9 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
     formData.set("message", message);
     formData.set("vehicle", vehicle);
 
-    if (attachment) {
-      formData.set("attachment", attachment);
-    }
+    attachments.slice(0, 3).forEach((attachment) => {
+      formData.append("attachments", attachment);
+    });
 
     const response = await fetch("/api/inquiries", {
       method: "POST",
@@ -182,8 +184,23 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
             <input
               className="field file:mr-4 file:border-0 file:bg-[#f0e7d6] file:px-4 file:py-2 file:text-[0.58rem] file:font-semibold file:uppercase file:tracking-[0.18em] file:text-[#16110b]"
               type="file"
+              multiple
               accept="application/pdf,image/jpeg,image/png,image/webp"
-              onChange={(event) => setAttachment(event.target.files?.[0] || null)}
+              onChange={(event) => {
+                const selectedFiles = Array.from(event.target.files || []);
+
+                if (selectedFiles.length > 3) {
+                  setStatus("error");
+                  setError(labels.attachmentLimit);
+                  event.currentTarget.value = "";
+                  setAttachments([]);
+                  return;
+                }
+
+                setError("");
+                setStatus("idle");
+                setAttachments(selectedFiles);
+              }}
             />
             <span className="normal-case tracking-normal text-[#d8d0c2]">{labels.attachmentHint}</span>
           </label>

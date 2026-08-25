@@ -73,3 +73,45 @@ test("keeps safe attachment metadata", () => {
     }
   ]);
 });
+
+test("keeps multiple safe attachment metadata entries", () => {
+  const result = sanitizeInquiryInput({
+    type: "vehicle",
+    language: "de",
+    name: "Sammlung",
+    email: "sammlung@example.com",
+    message: "Ich sende mehrere Fotos zu diesem Fahrzeug.",
+    attachments: [
+      {
+        url: "https://blob.vercel-storage.com/inquiries/front.jpg",
+        name: "front.jpg",
+        type: "image/jpeg",
+        size: 120000
+      },
+      {
+        url: "https://blob.vercel-storage.com/inquiries/interior.png",
+        name: "interior.png",
+        type: "image/png",
+        size: 130000
+      },
+      {
+        url: "https://blob.vercel-storage.com/inquiries/history.pdf",
+        name: "history.pdf",
+        type: "application/pdf",
+        size: 220000
+      },
+      {
+        url: "https://blob.vercel-storage.com/inquiries/extra.webp",
+        name: "extra.webp",
+        type: "image/webp",
+        size: 140000
+      }
+    ]
+  });
+
+  assert.equal(result.ok, true);
+  assert.equal(result.value.attachments.length, 3);
+  assert.equal(result.value.attachments[0].name, "front.jpg");
+  assert.equal(result.value.attachments[1].name, "interior.png");
+  assert.equal(result.value.attachments[2].name, "history.pdf");
+});

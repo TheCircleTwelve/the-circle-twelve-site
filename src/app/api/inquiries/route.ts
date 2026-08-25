@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 const acceptedFileTypes = new Set(["application/pdf", "image/jpeg", "image/png", "image/webp"]);
 const maxFileSize = 4 * 1024 * 1024;
+const maxFiles = 3;
 
 function safeFileName(value: string) {
   return value.replace(/[^a-zA-Z0-9._-]/g, "-").replace(/-+/g, "-").slice(0, 140) || "attachment";
@@ -20,7 +21,9 @@ async function parseInquiryRequest(request: Request) {
   }
 
   const formData = await request.formData();
-  const file = formData.get("attachment");
+  const files = [...formData.getAll("attachments"), ...formData.getAll("attachment")]
+    .filter((file): file is File => file instanceof File && file.size > 0)
+    .slice(0, maxFiles);
   const input: Record<string, unknown> = {
     type: formData.get("type"),
     language: formData.get("language"),
@@ -32,28 +35,32 @@ async function parseInquiryRequest(request: Request) {
     attachments: []
   };
 
-  if (file instanceof File && file.size > 0) {
-    if (!acceptedFileTypes.has(file.type)) {
-      throw new Error("Please upload a PDF, JPG, PNG or WebP file.");
-    }
+  if (files.length) {
+    const attachments: Array<{ url: string; name: string; type: string; size: number }> = [];
 
-    if (file.size > maxFileSize) {
-      throw new Error("Please upload a file smaller than 4 MB.");
-    }
+    for (const file of files) {
+      if (!acceptedFileTypes.has(file.type)) {
+        throw new Error("Please upload a PDF, JPG, PNG or WebP file.");
+      }
 
-    const blob = await put(`inquiries/${Date.now()}-${safeFileName(file.name)}`, file, {
-      access: "private",
-      contentType: file.type
-    });
+      if (file.size > maxFileSize) {
+        throw new Error("Please upload a file smaller than 4 MB.");
+      }
 
-    input.attachments = [
-      {
+      const blob = await put(`inquiries/${Date.now()}-${safeFileName(file.name)}`, file, {
+        access: "private",
+        contentType: file.type
+      });
+
+      attachments.push({
         url: blob.url,
         name: file.name,
         type: file.type,
         size: file.size
-      }
-    ];
+      });
+    }
+
+    input.attachments = attachments;
   }
 
   return input;
