@@ -2,6 +2,13 @@ import { sanitizeInquiryInput } from "@/lib/inquiry-validation.mjs";
 
 export type InquiryStatus = "new" | "read" | "done";
 
+export type InquiryAttachment = {
+  url: string;
+  name: string;
+  type: string;
+  size: number;
+};
+
 export type InquiryRecord = {
   id: string;
   createdAt: string;
@@ -13,9 +20,13 @@ export type InquiryRecord = {
   phone: string;
   message: string;
   vehicle: string;
+  attachments: InquiryAttachment[];
 };
 
-type SanitizedInquiry = Pick<InquiryRecord, "type" | "language" | "name" | "email" | "phone" | "message" | "vehicle">;
+type SanitizedInquiry = Pick<
+  InquiryRecord,
+  "type" | "language" | "name" | "email" | "phone" | "message" | "vehicle" | "attachments"
+>;
 
 const indexKey = "circle12:inquiries:index";
 const recordPrefix = "circle12:inquiries:record:";
@@ -69,6 +80,13 @@ function pairsToObject(values: unknown[]): Record<string, string> {
 
 function toRecord(values: unknown[]): InquiryRecord | null {
   const data = pairsToObject(values);
+  let attachments: InquiryAttachment[] = [];
+
+  try {
+    attachments = data.attachments ? (JSON.parse(data.attachments) as InquiryAttachment[]) : [];
+  } catch {
+    attachments = [];
+  }
 
   if (!data.id || !data.createdAt) {
     return null;
@@ -84,7 +102,8 @@ function toRecord(values: unknown[]): InquiryRecord | null {
     email: data.email || "",
     phone: data.phone || "",
     message: data.message || "",
-    vehicle: data.vehicle || ""
+    vehicle: data.vehicle || "",
+    attachments
   };
 }
 
@@ -135,7 +154,9 @@ export async function createInquiry(input: unknown) {
     "message",
     record.message,
     "vehicle",
-    record.vehicle
+    record.vehicle,
+    "attachments",
+    JSON.stringify(record.attachments)
   ]);
   await redisCommand<number>(["ZADD", indexKey, now, record.id]);
 

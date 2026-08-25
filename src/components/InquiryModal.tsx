@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { FormEvent } from "react";
 
 type InquiryType = "search" | "sell" | "opportunity" | "vehicle";
 
@@ -23,9 +24,13 @@ const copy = {
     message: "Message",
     send: "Submit inquiry",
     sending: "Submitting...",
-    success: "Your inquiry has been received.",
+    success: "Inquiry sent.",
+    successText: "Thank you. Your message has been received and stored in our private inbox.",
     close: "Close",
-    contactHint: "Please add email or phone so we can respond."
+    contactHint: "Please add email or phone so we can respond.",
+    attachment: "Attachment",
+    attachmentHint: "PDF, JPG, PNG or WebP. Max. 4 MB.",
+    another: "Send another inquiry"
   },
   de: {
     title: "Private Anfrage senden.",
@@ -36,9 +41,13 @@ const copy = {
     message: "Nachricht",
     send: "Anfrage senden",
     sending: "Wird gesendet...",
-    success: "Ihre Anfrage wurde gespeichert.",
+    success: "Anfrage gesendet.",
+    successText: "Vielen Dank. Ihre Nachricht wurde empfangen und in unserer privaten Inbox gespeichert.",
     close: "Schließen",
-    contactHint: "Bitte E-Mail oder Telefon angeben, damit wir antworten können."
+    contactHint: "Bitte E-Mail oder Telefon angeben, damit wir antworten können.",
+    attachment: "Anhang",
+    attachmentHint: "PDF, JPG, PNG oder WebP. Max. 4 MB.",
+    another: "Weitere Anfrage senden"
   }
 };
 
@@ -48,6 +57,7 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState(vehicle ? `${vehicle}: ` : "");
+  const [attachment, setAttachment] = useState<File | null>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
@@ -55,23 +65,35 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
     return null;
   }
 
-  async function submitInquiry(event: React.FormEvent<HTMLFormElement>) {
+  function resetForm() {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage(vehicle ? `${vehicle}: ` : "");
+    setAttachment(null);
+  }
+
+  async function submitInquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("sending");
     setError("");
 
+    const formData = new FormData();
+    formData.set("type", type);
+    formData.set("language", language);
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("phone", phone);
+    formData.set("message", message);
+    formData.set("vehicle", vehicle);
+
+    if (attachment) {
+      formData.set("attachment", attachment);
+    }
+
     const response = await fetch("/api/inquiries", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type,
-        language,
-        name,
-        email,
-        phone,
-        message,
-        vehicle
-      })
+      body: formData
     });
 
     const body = (await response.json().catch(() => ({}))) as { error?: string };
@@ -83,10 +105,7 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
     }
 
     setStatus("success");
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage(vehicle ? `${vehicle}: ` : "");
+    resetForm();
   }
 
   return (
@@ -106,6 +125,30 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
           </button>
         </div>
 
+        {status === "success" ? (
+          <div className="px-5 py-7 sm:p-8">
+            <div className="border border-[#d3b98d]/35 bg-[#f0e7d6] p-5 text-[#16110b] sm:p-7">
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-[#5f4728]">{labels.success}</p>
+              <p className="mt-4 text-base leading-8">{labels.successText}</p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={() => setStatus("idle")}
+                  className="border border-[#5f4728]/45 px-5 py-4 text-[0.62rem] font-semibold uppercase tracking-[0.22em]"
+                >
+                  {labels.another}
+                </button>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="bg-[#16110b] px-5 py-4 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[#f0e7d6]"
+                >
+                  {labels.close}
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
         <form onSubmit={submitInquiry} className="grid gap-4 px-5 py-5 sm:grid-cols-2 sm:p-7">
           <p className="text-sm leading-7 text-[#d8d0c2] sm:col-span-2">{labels.intro}</p>
 
@@ -134,8 +177,18 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
             />
           </label>
 
+          <label className="grid gap-2 text-[0.58rem] uppercase tracking-[0.22em] text-[#d3b98d] sm:col-span-2">
+            {labels.attachment}
+            <input
+              className="field file:mr-4 file:border-0 file:bg-[#f0e7d6] file:px-4 file:py-2 file:text-[0.58rem] file:font-semibold file:uppercase file:tracking-[0.18em] file:text-[#16110b]"
+              type="file"
+              accept="application/pdf,image/jpeg,image/png,image/webp"
+              onChange={(event) => setAttachment(event.target.files?.[0] || null)}
+            />
+            <span className="normal-case tracking-normal text-[#d8d0c2]">{labels.attachmentHint}</span>
+          </label>
+
           {status === "error" ? <p className="text-sm text-[#d3b98d] sm:col-span-2">{error}</p> : null}
-          {status === "success" ? <p className="text-sm text-[#d3b98d] sm:col-span-2">{labels.success}</p> : null}
 
           <button
             type="submit"
@@ -145,6 +198,7 @@ export function InquiryModal({ open, onClose, language = "en", type, subject, ve
             {status === "sending" ? labels.sending : labels.send}
           </button>
         </form>
+        )}
       </div>
     </div>
   );

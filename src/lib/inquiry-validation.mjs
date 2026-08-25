@@ -1,5 +1,6 @@
 const inquiryTypes = new Set(["search", "sell", "opportunity", "vehicle"]);
 const languages = new Set(["en", "de"]);
+const attachmentTypes = new Set(["application/pdf", "image/jpeg", "image/png", "image/webp"]);
 
 function cleanText(value, maxLength) {
   return String(value ?? "").replace(/\s+/g, " ").trim().slice(0, maxLength);
@@ -7,6 +8,28 @@ function cleanText(value, maxLength) {
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function sanitizeAttachments(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .slice(0, 1)
+    .map((attachment) => {
+      const url = cleanText(attachment?.url, 800);
+      const name = cleanText(attachment?.name, 180);
+      const type = cleanText(attachment?.type, 80);
+      const size = Number(attachment?.size || 0);
+
+      if (!url.startsWith("https://") || !name || !attachmentTypes.has(type) || !Number.isFinite(size) || size < 1) {
+        return null;
+      }
+
+      return { url, name, type, size };
+    })
+    .filter(Boolean);
 }
 
 export function sanitizeInquiryInput(input) {
@@ -17,6 +40,7 @@ export function sanitizeInquiryInput(input) {
   const phone = cleanText(input?.phone, 80);
   const message = cleanText(input?.message, 3000);
   const vehicle = cleanText(input?.vehicle, 180);
+  const attachments = sanitizeAttachments(input?.attachments);
 
   if (!inquiryTypes.has(type)) {
     return { ok: false, error: "Please choose a valid inquiry type." };
@@ -51,7 +75,8 @@ export function sanitizeInquiryInput(input) {
       email,
       phone,
       message,
-      vehicle
+      vehicle,
+      attachments
     }
   };
 }

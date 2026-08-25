@@ -72,6 +72,26 @@ export function InboxClient() {
     await loadInbox();
   }
 
+  async function downloadAttachment(url: string, name: string) {
+    const response = await fetch(`/api/inbox/file?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`, {
+      headers: { Authorization: `Bearer ${savedPassword}` },
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      setError("Datei konnte nicht geöffnet werden.");
+      return;
+    }
+
+    const file = await response.blob();
+    const objectUrl = window.URL.createObjectURL(file);
+    const anchor = document.createElement("a");
+    anchor.href = objectUrl;
+    anchor.download = name || "attachment";
+    anchor.click();
+    window.URL.revokeObjectURL(objectUrl);
+  }
+
   useEffect(() => {
     const stored = window.localStorage.getItem("circle12-inbox-password") || "";
     if (stored) {
@@ -157,6 +177,20 @@ export function InboxClient() {
                     <p>Telefon: {inquiry.phone || "-"}</p>
                     <p>Fahrzeug: {inquiry.vehicle || "-"}</p>
                   </div>
+                  {inquiry.attachments?.length ? (
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {inquiry.attachments.map((attachment) => (
+                        <button
+                          key={attachment.url}
+                          type="button"
+                          onClick={() => downloadAttachment(attachment.url, attachment.name)}
+                          className="border border-[#d3b98d]/35 bg-[#f0e7d6] px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#16110b]"
+                        >
+                          Datei öffnen / {attachment.name}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
                   <p className="mt-5 whitespace-pre-wrap border-l border-[#d3b98d]/45 pl-4 text-base leading-8 text-pearl">
                     {inquiry.message}
                   </p>

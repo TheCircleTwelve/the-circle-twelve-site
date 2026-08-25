@@ -45,3 +45,31 @@ test("rejects too short messages", () => {
   assert.equal(result.ok, false);
   assert.match(result.error, /message/i);
 });
+
+test("keeps safe attachment metadata", () => {
+  const result = sanitizeInquiryInput({
+    type: "vehicle",
+    language: "en",
+    name: "Collector",
+    email: "collector@example.com",
+    message: "I can provide further details on this vehicle.",
+    attachments: [
+      {
+        url: "https://blob.vercel-storage.com/inquiries/photo.jpg",
+        name: " photo.jpg ",
+        type: "image/jpeg",
+        size: 245760
+      }
+    ]
+  });
+
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.value.attachments, [
+    {
+      url: "https://blob.vercel-storage.com/inquiries/photo.jpg",
+      name: "photo.jpg",
+      type: "image/jpeg",
+      size: 245760
+    }
+  ]);
+});

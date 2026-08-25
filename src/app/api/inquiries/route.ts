@@ -1,12 +1,67 @@
 import { NextResponse } from "next/server";
+import { put } from "@vercel/blob";
 import { createInquiry } from "@/lib/inquiry-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const acceptedFileTypes = new Set(["application/pdf", "image/jpeg", "image/png", "image/webp"]);
+const maxFileSize = 4 * 1024 * 1024;
+
+function safeFileName(value: string) {
+  return value.replace(/[^a-zA-Z0-9._-]/g, "-").replace(/-+/g, "-").slice(0, 140) || "attachment";
+}
+
+async function parseInquiryRequest(request: Request) {
+  const contentType = request.headers.get("content-type") || "";
+
+  if (!contentType.includes("multipart/form-data")) {
+    return request.json();
+  }
+
+  const formData = await request.formData();
+  const file = formData.get("attachment");
+  const input: Record<string, unknown> = {
+    type: formData.get("type"),
+    language: formData.get("language"),
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    message: formData.get("message"),
+    vehicle: formData.get("vehicle"),
+    attachments: []
+  };
+
+  if (file instanceof File && file.size > 0) {
+    if (!acceptedFileTypes.has(file.type)) {
+      throw new Error("Please upload a PDF, JPG, PNG or WebP file.");
+    }
+
+    if (file.size > maxFileSize) {
+      throw new Error("Please upload a file smaller than 4 MB.");
+    }
+
+    const blob = await put(`inquiries/${Date.now()}-${safeFileName(file.name)}`, file, {
+      access: "private",
+      contentType: file.type
+    });
+
+    input.attachments = [
+      {
+        url: blob.url,
+        name: file.name,
+        type: file.type,
+        size: file.size
+      }
+    ];
+  }
+
+  return input;
+}
+
 export async function POST(request: Request) {
   try {
-    const input = await request.json();
+    const input = await parseInquiryRequest(request);
     const result = await createInquiry(input);
 
     if (!result.ok) {
