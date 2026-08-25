@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { InquiryRecord, InquiryStatus } from "@/lib/inquiry-store";
+import { isPreviewableImage } from "@/lib/inquiry-attachments.mjs";
+import type { InquiryAttachment, InquiryRecord, InquiryStatus } from "@/lib/inquiry-store";
 
 const statusLabels: Record<InquiryStatus, string> = {
   new: "Neu",
@@ -14,6 +15,91 @@ function formatDate(value: string) {
     dateStyle: "medium",
     timeStyle: "short"
   }).format(new Date(value));
+}
+
+function AttachmentPreview({
+  attachment,
+  password,
+  onDownload,
+  onError
+}: {
+  attachment: InquiryAttachment;
+  password: string;
+  onDownload: (url: string, name: string) => void;
+  onError: (message: string) => void;
+}) {
+  const [previewUrl, setPreviewUrl] = useState("");
+
+  useEffect(() => {
+    if (!isPreviewableImage(attachment)) {
+      return;
+    }
+
+    let active = true;
+    let objectUrl = "";
+
+    async function loadPreview() {
+      const response = await fetch(
+        `/api/inbox/file?url=${encodeURIComponent(attachment.url)}&name=${encodeURIComponent(attachment.name)}`,
+        {
+          headers: { Authorization: `Bearer ${password}` },
+          cache: "no-store"
+        }
+      );
+
+      if (!response.ok) {
+        onError("Bildvorschau konnte nicht geladen werden.");
+        return;
+      }
+
+      const file = await response.blob();
+      objectUrl = window.URL.createObjectURL(file);
+
+      if (active) {
+        setPreviewUrl(objectUrl);
+      }
+    }
+
+    void loadPreview();
+
+    return () => {
+      active = false;
+      if (objectUrl) {
+        window.URL.revokeObjectURL(objectUrl);
+      }
+    };
+  }, [attachment, onError, password]);
+
+  if (isPreviewableImage(attachment)) {
+    return (
+      <div className="w-full max-w-sm border border-white/10 bg-black/25 p-2">
+        {previewUrl ? (
+          <img src={previewUrl} alt={attachment.name} className="aspect-[4/3] w-full object-cover" />
+        ) : (
+          <div className="grid aspect-[4/3] w-full place-items-center bg-[#080705] text-[0.62rem] uppercase tracking-[0.22em] text-[#d8d0c2]">
+            Bild lädt...
+          </div>
+        )}
+        <button
+          type="button"
+          onClick={() => onDownload(attachment.url, attachment.name)}
+          className="mt-2 w-full bg-[#f0e7d6] px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#16110b]"
+        >
+          Datei öffnen / {attachment.name}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => onDownload(attachment.url, attachment.name)}
+      className="border border-[#d3b98d]/35 bg-[#f0e7d6] px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#16110b]"
+    >
+      Datei öffnen / {attachment.name}
+    </button>
+  );
 }
 
 export function InboxClient() {
@@ -178,16 +264,15 @@ export function InboxClient() {
                     <p>Fahrzeug: {inquiry.vehicle || "-"}</p>
                   </div>
                   {inquiry.attachments?.length ? (
-                    <div className="mt-5 flex flex-wrap gap-3">
+                    <div className="mt-5 flex flex-wrap items-start gap-3">
                       {inquiry.attachments.map((attachment) => (
-                        <button
+                        <AttachmentPreview
                           key={attachment.url}
-                          type="button"
-                          onClick={() => downloadAttachment(attachment.url, attachment.name)}
-                          className="border border-[#d3b98d]/35 bg-[#f0e7d6] px-4 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#16110b]"
-                        >
-                          Datei öffnen / {attachment.name}
-                        </button>
+                          attachment={attachment}
+                          password={savedPassword}
+                          onDownload={downloadAttachment}
+                          onError={setError}
+                        />
                       ))}
                     </div>
                   ) : null}
